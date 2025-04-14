@@ -1,0 +1,6 @@
+/*TODO: Learn Tailwindcss*/
+@import "tailwindcss";
+
+@theme {
+    --icon: text-white, rounded-lg, px-6, py-8, mx-28, ring, shadow-xl;
+}
