@@ -1,22 +1,26 @@
 <!--TODO: Build proper Header-->
-
-
 <script lang='ts'>
-    let { name }: {
-        name: string
-    } = $props();
+
 </script>
 
-<h1 class="text-3x1 dark:font-bold ">This is a header</h1>
 
-<p>Hello {name}</p>
-<p>{name.replaceAll('o', 'x')}</p>
+
+<nav class="container">
+    <ul>
+        <li><img src="#" alt="Logo"></li>
+        <li><img src="src\assets\img\Logo-positivo-resumido-Patrón-Play---SVG.png" alt="PatronPlay" width=180></li>
+        <!--<h3>PatronPlay</h3>-->
+    </ul>
+    <ul>
+        <li>About</li>
+        <li>Main</li>
+        <li>Search</li>
+    </ul>
+</nav>
+
 
 <style>
-    body {
-        background-color: hsl(220deg 13.73% 16.05%);
-        color: #ffffff4d;
-    }
+    
 </style>
 
 <!--TODO: Add Footer component-->

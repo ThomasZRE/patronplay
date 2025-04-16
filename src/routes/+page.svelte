@@ -1,4 +1,5 @@
 <script lang='ts'>
+    // TODO: Learn some Typescript
     import Header from './Header.svelte'; 
     import Main from './Main.svelte';
     
@@ -16,18 +17,10 @@
     }
 </script>
 
-<Header {name}/> 
-
-<input type="text" bind:value={name}/>
-
-<p>The store is now {status}</p>
-
-<button {onclick}>
-    click to change the state
-</button>
-
+<Header /> 
 
 <Main />
+
 
 
 <!--TODO: Integrate everything-->
