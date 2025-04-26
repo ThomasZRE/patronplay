@@ -17,14 +17,11 @@
         </li>
     </ul>
     <ul>
-        <li><a href="#">Sobre nosotros</a></li>
+        <li><a href="/about">Sobre nosotros</a></li>
     </ul>    
 </nav>
 <br>
 <br>    
-
-
-
 
 <style>
     .container {
@@ -45,6 +42,3 @@
         color: var(--pico-h4-color);
     }
 </style>
-
-<!--TODO: Add Footer component-->
-

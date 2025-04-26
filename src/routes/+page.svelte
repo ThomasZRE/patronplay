@@ -2,7 +2,7 @@
     // TODO: Learn some Typescript
     import Header from './Header.svelte'; 
     import Main from './Main.svelte';
-    
+    import Footer from './Footer.svelte';
 
 </script>
 
@@ -10,11 +10,4 @@
 
 <Main />
 
-
-
-<!--TODO: Integrate everything-->
-<!--
-    <Header />
-    <Main />
-    <Footer />
--->
+<Footer />
