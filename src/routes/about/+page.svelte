@@ -1,14 +1,17 @@
 <script lang="ts">
     import '@picocss/pico';
+    import Carousel from './Carousel.svelte';
+    import Footer from '../Footer.svelte';
     import type { PageData } from './$types';
 
     let { data }: { data: PageData } = $props();
+
 </script>
 
 <header>
     <nav class=container>
         <ul>
-            <img src="src\assets\img\Logo-principal-resumido-Patrón-Play-croped-PNG.png" alt="Logo PatrónPlay" width=480>
+            <a href="/"><img src="src\assets\img\Logo-principal-resumido-Patrón-Play-croped-PNG.png" alt="Logo PatrónPlay" width=480></a>
         </ul>
     </nav>
 </header>
@@ -24,7 +27,7 @@
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, incidunt reprehenderit quo at fugit possimus ab reiciendis. Maxime doloribus placeat sequi ducimus voluptas, doloremque aliquid explicabo quia inventore necessitatibus at!
         </p>
         </div>
-        <img src="https://121clicks.com/wp-content/uploads/2024/09/best-top-travel-landscape-photography-24.jpg" alt="#" width=300>
+        <img src="https://121clicks.com/wp-content/uploads/2024/09/best-top-travel-landscape-photography-24.jpg" alt="#" width=325>
 </div>
 <br>
 <br>
@@ -38,17 +41,16 @@
     </div>
 
     <div class="carousel">
-
+        <Carousel />
     </div>
-
-    
 
 </div>
 
-<hr />
-
+<br>
 
 </main>
+
+<Footer />  
 
 <style>
     .container {
@@ -80,12 +82,20 @@
         margin-left: 100px;
     }
 
+    .carousel {
+        margin-left: -50px;
+    }
+
     .main-text-2 h2 {
         text-align: center;
     }   
 
     .text-2 {
         margin-left: 50px;
+    }
+
+    hr {
+        margin-left:-75px;
     }
 
 </style>
