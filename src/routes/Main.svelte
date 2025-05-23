@@ -16,10 +16,11 @@
         </hgroup>
     </section>
 
+    <!-- src\assets\img\icons\Netflix-logo.png -->
     
     <section id="product-cards">
         <div class='grid'>
-            <Cards product="Netflix" price={11500} src="src\assets\img\icons\Netflix-logo.png" />
+            <Cards product="Netflix" price={11500} src="src\assets\img\icons\netflix-symbol-black.png" />
 
             <Cards product="Disney+ Estándar" price={6500} src="src\assets\img\icons\Disneyplus-logo.jpg"/>
             

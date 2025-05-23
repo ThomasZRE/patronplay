@@ -1,11 +1,14 @@
 <script lang="ts">
     import '@picocss/pico/css/pico.colors.min.css'
 
+    
+
+    // https://about.netflix.com/images/meta/netflix-symbol-black.png
 
     let {
         product,
         price,
-        src = "https://about.netflix.com/images/meta/netflix-symbol-black.png"
+        src = "src\assets\img\icons\netflix-symbol-black.png"
     }: {
         product: string;
         price: number
@@ -25,12 +28,11 @@
     <aside>
         <nav class=container-fluid>
             <ul>
-                <img src={src} alt=product width=700>
+                <img src={src} alt=product>
             </ul>
-
             <ul>
                 <hgroup>
-                    <h6>{product}</h6>
+                    <p><strong>{product}</strong></p>
                     <p>${price}</p> 
                 </hgroup>
                 <a class="pico-background-jade-400" role="button" href="https://api.whatsapp.com/send?phone=573217336649&text=Hola,%20quiero%20preguntar%20sobre%20{product}">
@@ -52,7 +54,20 @@
         --pico-border-color: var(--pico-color-jade-450); 
     }
 
+    [role="button"] {
+        padding: 0.5rem 1rem 0.5rem 1rem;
+    }
+
     img {
-        margin-bottom: 50px;
+        width: 100%;
+        max-width: 100%;
+        height: 100%;
+        object-fit: contain;
+        margin-bottom: 1rem;
+        padding: 0.1rem;
+    }
+
+    .container-fluid p {
+        font-size: 1rem;
     }
 </style>
