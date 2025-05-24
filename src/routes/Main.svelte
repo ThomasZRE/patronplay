@@ -25,7 +25,6 @@
         </hgroup>
     </section>
 
-    <!-- src\assets\img\icons\Netflix-logo.png -->
     
     <section id="product-cards">
         <div class='grid'>

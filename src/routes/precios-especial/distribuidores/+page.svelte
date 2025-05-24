@@ -9,7 +9,7 @@
     let distribuidoresPrices = {
         "Netflix": 10000,
         "Prime": 3500,
-        "ChatGPT": 26000,
+        "ChatGPT": 22000,
         "DisneyPlus": 3500,
         "DisneyPremium": 7500,
         "Max": 2800,

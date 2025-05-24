@@ -17,6 +17,7 @@
         </li>
     </ul>
     <ul>
+        <li><a href="/terms-and-conditions">Términos y condiciones</a></li>
         <li><a href="/about">Sobre nosotros</a></li>
     </ul>    
 </nav>
