@@ -13,7 +13,7 @@
 
 <nav class="container">
     <ul>
-        <li><img src="src\assets\img\Logo-principal-resumido-Patrón-Play-croped-PNG.png" alt="PatronPlay" width=180>
+        <li><img src="\src\assets\img\Logo-principal-resumido-Patrón-Play-croped-PNG.png" alt="PatronPlay" width=180>
         </li>
     </ul>
     <ul>

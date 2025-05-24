@@ -1,14 +1,12 @@
 <script lang="ts">
     import '@picocss/pico/css/pico.colors.min.css'
 
-    
-
     // https://about.netflix.com/images/meta/netflix-symbol-black.png
 
     let {
         product,
         price,
-        src = "src\assets\img\icons\netflix-symbol-black.png"
+        src = "src\assets\img\icons\Netflix-symbol.png"
     }: {
         product: string;
         price: number
@@ -27,10 +25,10 @@
 <article>
     <aside>
         <nav class=container-fluid>
-            <ul>
+            <ul class="image">
                 <img src={src} alt=product>
             </ul>
-            <ul>
+            <ul class="in-content">
                 <hgroup>
                     <p><strong>{product}</strong></p>
                     <p>${price}</p> 
@@ -58,13 +56,40 @@
         padding: 0.5rem 1rem 0.5rem 1rem;
     }
 
+    .container-fluid, aside, article {
+        padding: 0;
+    }
+
+    .image {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    article, img {
+        border-radius: 0.5rem;
+        border-bottom-left-radius: none;
+        border-bottom-right-radius: none;
+    }
+
     img {
         width: 100%;
-        max-width: 100%;
         height: 100%;
-        object-fit: contain;
+        object-fit: cover;
+        padding: 0;
+        margin: 0;
         margin-bottom: 1rem;
-        padding: 0.1rem;
+        border-radius: 0.5rem 0.5rem 0 0;
+    }
+
+    .in-content {
+        margin-left: 1rem;
+        margin-bottom: 1rem;
     }
 
     .container-fluid p {

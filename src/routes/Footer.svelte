@@ -37,11 +37,11 @@
             <h5>Comunidades</h5>
             <div class="community-info">
                 <span>Telegram:</span>
-                <span>//telegramcommun</span>
+                <div class="community">Soon to come</div>
             </div>
             <div class="community-info">
                 <span>Whatsapp:</span>
-                <span>//Whatsappcommun</span>
+                <div class="community">Soon to come</div>
             </div>
         </div>
     </nav>
@@ -99,6 +99,10 @@
         grid-template-columns: auto 1fr;
         gap: 0.75rem; /* Reduced gap */
         margin-bottom: 0.4rem; /* Reduced margin */
+    }
+
+    .community-info .community {
+        color: var(--pico-h6-color);
     }
 
     .phone-number {
