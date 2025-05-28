@@ -13,35 +13,72 @@
         "DisneyPremium": 9500,
         "Max": 4000,
     }
+
+    let grid3 = 'grid-3';
     
 </script>
 
 <main class="container">
-
     <section id="Head-section">
         <hgroup>
             <h1>{title}</h1>
             <h3>{subtitle}</h3>
         </hgroup>
+        <hgroup>
+            <a href="/combos">
+                <h6>Explora nuestros <div id="Combos-text" style="display: inline-flex;">combos!</div></h6>
+            </a>
+        </hgroup>
     </section>
 
     
     <section id="product-cards">
-        <div class='grid'>
-            <Cards product="Netflix" price={prices.Netflix} src="\src\assets\img\icons\Netflix-symbol.png" />
+        <div class='grid grid-3'>
+            <Cards showSelect product="Netflix" price={prices.Netflix} src="\src\assets\img\icons\Netflix-symbol.png" />
 
-            <Cards product="Disney+ Estándar" price={prices.DisneyPlus} src="\src\assets\img\icons\disney-symbol.jpg"/>
+            <Cards showSelect product="Disney+ Estándar" price={prices.DisneyPlus} src="\src\assets\img\icons\disney-symbol.jpg"/>
             
-            <Cards product="Amazon Prime Video" price={prices.Prime} src="\src\assets\img\icons\prime-symbol.png"/>
+            <Cards showSelect product="Amazon Prime Video" price={prices.Prime} src="\src\assets\img\icons\prime-symbol.png"/>
         </div>
     
-        <div class='grid'>
-            <Cards product="ChatGPT Plus" price={prices.ChatGPT} src="\src\assets\img\icons\ChatGPT.png"/>
-            <Cards product="Disney+ Premium" price={prices.DisneyPremium} src="\src\assets\img\icons\DPremium.png" />
-            <Cards product="Max" price={prices.Max} src="\src\assets\img\icons\max-symbol.jpg"/>
+        <div class='grid grid-3'>
+            <Cards showSelect product="ChatGPT Plus" price={prices.ChatGPT} src="\src\assets\img\icons\ChatGPT.png"/>
+            <Cards showSelect product="Disney+ Premium" price={prices.DisneyPremium} src="\src\assets\img\icons\DPremium.png" />
+            <Cards showSelect product="Max" price={prices.Max} src="\src\assets\img\icons\max-symbol.jpg"/>
         </div>     
     </section>
 
 </main>
 <br>
+
+<style>
+    #Head-section {
+        display:flex;
+        justify-content: space-between;
+    }
+
+    #Head-section h6 {
+        color: var(--pico-small-color);
+    }
+
+    #Head-section a {
+        text-decoration: none;
+        color: var(--pico-small-color);
+    }
+
+    #Head-section h6:hover {
+        color: var(--pico-h6-color);
+    }
+
+    #Combos-text {
+        animation: color-change 1s infinite;
+    }
+
+    @keyframes color-change {
+        0% { color: var(--pico-color-red-400); }
+        50% { color: var(--pico-color-indigo-700); }
+        100% { color: var(--pico-color-red-400); }    
+    }
+    
+</style>
 

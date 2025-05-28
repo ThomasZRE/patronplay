@@ -13,8 +13,8 @@
 
 <nav class="container">
     <ul>
-        <li><img src="\src\assets\img\Logo-principal-resumido-Patrón-Play-croped-PNG.png" alt="PatronPlay" width=180>
-        </li>
+        <li><a href="/"><img src="\src\assets\img\Logo-principal-resumido-Patrón-Play-croped-PNG.png" alt="PatronPlay" width=180>
+        </a></li>   
     </ul>
     <ul>
         <li><a href="/terms-and-conditions">Términos y condiciones</a></li>
