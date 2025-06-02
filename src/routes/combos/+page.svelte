@@ -7,30 +7,30 @@
 
     let prices = {
         'Duos':{
-            'DUO_DE_PROMO': 11500,
-            'DUO_DINAMICO': 15000,
-            'DUO_NUEVO': 9000,
-            'DUO_DE_SIEMPRE': 10500,
-            'DUO_INCREIBLE': 15000,
-            'SUPER_DUO': 16500,
-            'DUO_FANTASTICO': 16000,
-            'DUO_FAVORITO': 10000,
+            'DUO_DE_PROMO': [11500, "Max, Prime video"],
+            'DUO_DINAMICO': [15000, "Paramount+, Netflix"],
+            'DUO_NUEVO': [9000,"Crunnchyroll, Paramount+"],
+            'DUO_DE_SIEMPRE': [10500,"Max, Disney+ Estándar"], 
+            'DUO_INCREIBLE': [15000,"Netflix, Disney+ Estándar"], 
+            'SUPER_DUO': [16500,"Netflix, Max"], 
+            'DUO_FANTASTICO': [16000,"Netflix, Prime video"],
+            'DUO_FAVORITO': [10000,"Prime video, Disney+ Estándar"],
         },
         'Tridentes':{
-            'TRIO_FAVORITO': 20000,
-            'TRIDENTE': 21000,
-            'COMBO_DE_3': 20000,
-            'COMBO_NUEVO': 12000,
-            'TRIPLETA_DEL_MES': 19500,
-            'COMBO_DE_LOCURA': 15500,
+            'TRIO_FAVORITO': [20000, "Netflix, Prime video, Disney+ Estándar"],
+            'TRIDENTE': [21000, "Netflix, Prime video, Max"],
+            'COMBO_DE_3': [20000, "Netflix, Disney+ Estándar, Max"],
+            'COMBO_NUEVO': [12000, "Paramount+, Vix+, Crunchyroll"],
+            'TRIPLETA_DEL_MES': [19500, "Netflix, Paramount+, Prime video"],
+            'COMBO_DE_LOCURA': [15500, "Disney+ Estándar, Prime video, Max"],
         }, 
         'Combos':{
-            'COMBO_INCREIBLE': 15000,
-            'COMBO_DE_SIEMPRE': 24000,
-            'EL_MEJOR_COMBO': 17500,
-            'COMBO_DE_4': 22500,
-            'COMBO_DE_PELICULA': 27500,
-            'SUPER_COMBO_DE_PELICULA': 31000,
+            'COMBO_INCREIBLE': [15000, "Plex, Crunchyroll, Paramount+, Vix+"],
+            'COMBO_DE_SIEMPRE': [24000, "Netflix, Max, Prime video, Disney+ Estándar"],
+            'EL_MEJOR_COMBO': [17500, "Paramount+, Max, Prime video, Disney+ Estándar"],
+            'COMBO_DE_4': [22500, "Netflix, Paramount+, Disney+ Estándar, Max"],
+            'COMBO_DE_PELICULA': [27500, "Netflix, Prime video, Disney+ Estándar, Max, Paramount+"],
+            'SUPER_COMBO_DE_PELICULA': [31000, "Netflix, Prime video, Disney+ Estándar, Max, Paramount+, Plex"],
         },};
 
     let duokeys = Object.keys(prices.Duos);
@@ -52,6 +52,10 @@
         return str.split('_')
             .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
             .join(' ');
+    }
+
+    let msg = {
+
     }
 </script>
 
@@ -110,12 +114,16 @@
             <figure>
                 <div class="grid grid-4">
                     {#each duokeys.slice(0, 4) as key}
-                        <Cards showSelect={false} product={capitalize(key)} price={prices.Duos[key]} {src}/>
+                        <div data-tooltip={prices.Duos[key][1]}>
+                            <Cards showSelect={false} product={capitalize(key)} price={prices.Duos[key][0]} {src}/>
+                        </div>
                     {/each}
                 </div>
                 <div class="grid grid-4">
                     {#each duokeys.slice(4) as key}
-                        <Cards showSelect={false} product={capitalize(key)} price={prices.Duos[key]} {src}/>
+                    <div data-tooltip={prices.Duos[key][1]}>
+                        <Cards showSelect={false} product={capitalize(key)} price={prices.Duos[key][0]} {src}/>
+                    </div>
                     {/each}
                 </div>
             </figure>
@@ -125,12 +133,16 @@
             <figure>
                 <div class="grid grid-3">
                     {#each trikeys.slice(0, 3) as key}
-                        <Cards showSelect={false} product={capitalize(key)} price={prices.Tridentes[key]} {src}/>
+                    <div data-tooltip={prices.Tridentes[key][1]}>
+                        <Cards showSelect={false} product={capitalize(key)} price={prices.Tridentes[key][0]} {src}/>
+                    </div>
                     {/each}
                 </div>
                 <div class="grid grid-3">
                     {#each trikeys.slice(3) as key}
-                        <Cards showSelect={false} product={capitalize(key)} price={prices.Tridentes[key]} {src}/>
+                    <div data-tooltip={prices.Tridentes[key][1]}>
+                        <Cards showSelect={false} product={capitalize(key)} price={prices.Tridentes[key][0]} {src}/>
+                    </div>
                     {/each}
                 </div>
             </figure>
@@ -139,12 +151,16 @@
             <figure>
                 <div class="grid grid-3">
                     {#each combkeys.slice(0, 3) as key}
-                        <Cards showSelect={false} product={capitalize(key)} price={prices.Combos[key]} {src}/>
+                    <div data-tooltip={prices.Combos[key][1]}>
+                        <Cards showSelect={false} product={capitalize(key)} price={prices.Combos[key][0]} {src}/>
+                    </div>
                     {/each}
                 </div>
                 <div class="grid grid-3">
                     {#each combkeys.slice(3) as key}
-                        <Cards showSelect={false} product={capitalize(key)} price={prices.Combos[key]} {src}/>
+                    <div data-tooltip={prices.Combos[key][1]}>
+                        <Cards showSelect={false} product={capitalize(key)} price={prices.Combos[key][0]} {src}/>
+                    </div>
                     {/each}
                 </div>
             </figure>
@@ -193,4 +209,5 @@
     [role="tabpanel"][hidden] {
         display: none;
     }
+
 </style>
