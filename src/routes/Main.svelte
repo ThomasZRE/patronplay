@@ -12,9 +12,19 @@
         "DisneyPlus": 6500,
         "DisneyPremium": 9500,
         "Max": 4000,
+        "Paramount": 6000,
+        "Crunchyroll": 6000,
+        "Vix": 5000,
+        "Plex": 5000,
+        "IPTV": 7000,
+        "Apple": 6000,
+        "Canva": 10000,
+        "Youtube": 8000,
+        "Spotify": 8000,
+        "DGO": 16000,
     }
 
-    let grid3 = 'grid-3';
+    export let hideCombos = false;
     
 </script>
 
@@ -25,7 +35,7 @@
             <h3>{subtitle}</h3>
         </hgroup>
         <hgroup>
-            <a href="/combos">
+            <a href="/combos" hidden={hideCombos}>
                 <h6>Explora nuestros <div id="Combos-text" style="display: inline-flex;">combos!</div></h6>
             </a>
         </hgroup>
@@ -33,19 +43,37 @@
 
     
     <section id="product-cards">
-        <div class='grid grid-3'>
+        <div class='grid grid-4'>
             <Cards showSelect product="Netflix" price={prices.Netflix} src="\src\assets\img\icons\Netflix-symbol.png" />
 
             <Cards showSelect product="Disney+ Estándar" price={prices.DisneyPlus} src="\src\assets\img\icons\disney-symbol.jpg"/>
             
             <Cards showSelect product="Amazon Prime Video" price={prices.Prime} src="\src\assets\img\icons\prime-symbol.png"/>
+
+            <Cards showSelect product="Paramount+" price={prices.Paramount} src="\src\assets\img\icons\paramount-symbol.png"/>
         </div>
     
-        <div class='grid grid-3'>
+        <div class='grid grid-4'>
             <Cards showSelect product="ChatGPT Plus" price={prices.ChatGPT} src="\src\assets\img\icons\ChatGPT.png"/>
             <Cards showSelect product="Disney+ Premium" price={prices.DisneyPremium} src="\src\assets\img\icons\DPremium.png" />
             <Cards showSelect product="Max" price={prices.Max} src="\src\assets\img\icons\max-symbol.jpg"/>
-        </div>     
+            <Cards showSelect product="Crunchyroll" price={prices.Crunchyroll} src="\src\assets\img\icons\crunchyroll-symbol.png"/>
+
+        </div>
+        
+        <div class='grid grid-4'>
+            <Cards showSelect product="Vix" price={prices.Vix} src="\src\assets\img\icons\vix-symbol.png"/>
+            <Cards showSelect product="Plex" price={prices.Plex} src="\src\assets\img\icons\plex-symbol.png"/>
+            <Cards showSelect product="IPTV Smarters" price={prices.IPTV} src="\src\assets\img\icons\iptv-symbol.png"/>
+            <Cards showSelect product="Apple TV" price={prices.Apple} src="\src\assets\img\icons\apple-symbol.png"/>
+        </div>
+
+        <div class="grid grid-4">
+            <Cards showSelect product="Canva Pro" price={prices.Canva} src="\src\assets\img\icons\canva-symbol.png"/>
+            <Cards showSelect product="Youtube Premium" price={prices.Youtube} src="\src\assets\img\icons\youtube-symbol.png"/>
+            <Cards showSelect product="Spotify" price={prices.Spotify} src="\src\assets\img\icons\spotify-symbol.png"/>
+            <Cards showSelect product="DGO con Win+" price={prices.DGO} src="\src\assets\img\icons\dgo-symbol.png"/>
+        </div>
     </section>
 
 </main>

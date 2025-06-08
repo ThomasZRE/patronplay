@@ -27,11 +27,12 @@
                 <img src={src} alt=product>
             </ul>
             <ul class="in-content">
-                <hgroup>
+                <hgroup class="product-container">
                     <div class="product-info">
                         <p id="product-name"><strong>{product}</strong></p>
                         <div class="price-container">
                             <p>${price}</p>
+                            <!--
                             {#if showSelect}
                                 <select name="products" id="tipo-producto" aria-label="1 pantalla">
                                     <option selected value="1-pantalla">
@@ -40,6 +41,7 @@
                                     <option value="completa">Cuenta completa (4 pantallas)</option>
                                 </select>
                             {/if}
+                            -->
                         </div>
                     </div>
                 </hgroup>
@@ -97,13 +99,14 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        align-items: start;
         flex: 1;
     }
 
     .price-container {
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: start;
         margin: 0.5rem 0;
     }
 
@@ -132,7 +135,7 @@
 
     @media (max-width: 1200px) {
         :global(.grid-4) {
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
         }
     }
 
@@ -157,14 +160,16 @@
     }
 
     .product-info {
-        margin-right: 1rem;
+        margin-right: 0;
     }
 
+    /*
     #tipo-producto {
         padding: 1vh;
-        max-width: 50%;
+        max-width: 50;
         margin-left: 1rem; 
     }
+    */
 
     .container-fluid p {
         font-size: 1rem;

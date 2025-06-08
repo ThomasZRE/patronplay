@@ -1,6 +1,7 @@
 <!--TODO: Build proper Header-->
 <script lang='ts'>
     import '@picocss/pico/css/pico.colors.min.css'
+    export let mainPage = "/";
 
     //"src\assets\img\Logo-positivo-resumido-Patrón-Play---SVG.png"
 </script>
@@ -13,7 +14,7 @@
 
 <nav class="container">
     <ul>
-        <li><a href="/"><img src="\src\assets\img\Logo-principal-resumido-Patrón-Play-croped-PNG.png" alt="PatronPlay" width=180>
+        <li><a href={mainPage}><img src="\src\assets\img\Logo-principal-resumido-Patrón-Play-croped-PNG.png" alt="PatronPlay" width=180>
         </a></li>   
     </ul>
     <ul>
