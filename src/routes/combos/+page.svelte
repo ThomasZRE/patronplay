@@ -3,41 +3,41 @@
 	import Header from '../Header.svelte';
     import type { PageData } from './$types';
 
+
     let { data }: { data: PageData } = $props();
 
     let prices = {
         'Duos':{
-            'DUO_DE_PROMO': [11500, "Max, Prime video"],
-            'DUO_DINAMICO': [15000, "Paramount+, Netflix"],
-            'DUO_NUEVO': [9000,"Crunnchyroll, Paramount+"],
-            'DUO_DE_SIEMPRE': [10500,"Max, Disney+ Estándar"], 
-            'DUO_INCREIBLE': [15000,"Netflix, Disney+ Estándar"], 
-            'SUPER_DUO': [16500,"Netflix, Max"], 
-            'DUO_FANTASTICO': [16000,"Netflix, Prime video"],
-            'DUO_FAVORITO': [10000,"Prime video, Disney+ Estándar"],
+            'DUO_DE_PROMO': [11500, "Max, Prime video", "max_prime.png"],
+            'DUO_DINAMICO': [15000, "Paramount+, Netflix", "paramount_netflix.png"],
+            'DUO_NUEVO': [9000,"Crunnchyroll, Paramount+", "paramount_crunchyroll.png"],
+            'DUO_DE_SIEMPRE': [10500,"Max, Disney+ Estándar", "max_disney.png"], 
+            'DUO_INCREIBLE': [15000,"Netflix, Disney+ Estándar", "netflix_disney.png"], 
+            'SUPER_DUO': [16500,"Netflix, Max", "netflix_max.png"], 
+            'DUO_FANTASTICO': [16000,"Netflix, Prime video", "netflix_prime.png"],
+            'DUO_FAVORITO': [10000,"Prime video, Disney+ Estándar", "prime_disney.png"],
         },
         'Tridentes':{
-            'TRIO_FAVORITO': [20000, "Netflix, Prime video, Disney+ Estándar"],
-            'TRIDENTE': [21000, "Netflix, Prime video, Max"],
-            'COMBO_DE_3': [20000, "Netflix, Disney+ Estándar, Max"],
-            'COMBO_NUEVO': [12000, "Paramount+, Vix+, Crunchyroll"],
-            'TRIPLETA_DEL_MES': [19500, "Netflix, Paramount+, Prime video"],
-            'COMBO_DE_LOCURA': [15500, "Disney+ Estándar, Prime video, Max"],
+            'TRIO_FAVORITO': [20000, "Netflix, Prime video, Disney+ Estándar", "netflix_prime_disney.png"],
+            'TRIDENTE': [21000, "Netflix, Prime video, Max", "netflix_prime_max.png"],
+            'COMBO_DE_3': [20000, "Netflix, Disney+ Estándar, Max", "netflix_disney_max.png"],
+            'COMBO_NUEVO': [12000, "Paramount+, Vix+, Crunchyroll", "paramount_vix_crunchyroll.png"],
+            'TRIPLETA_DEL_MES': [19500, "Netflix, Paramount+, Prime video", "netflix_paramount_prime.png"],
+            'COMBO_DE_LOCURA': [15500, "Disney+ Estándar, Prime video, Max", "disney_prime_max.png"],
         }, 
         'Combos':{
-            'COMBO_INCREIBLE': [15000, "Plex, Crunchyroll, Paramount+, Vix+"],
-            'COMBO_DE_SIEMPRE': [24000, "Netflix, Max, Prime video, Disney+ Estándar"],
-            'EL_MEJOR_COMBO': [17500, "Paramount+, Max, Prime video, Disney+ Estándar"],
-            'COMBO_DE_4': [22500, "Netflix, Paramount+, Disney+ Estándar, Max"],
-            'COMBO_DE_PELICULA': [27500, "Netflix, Prime video, Disney+ Estándar, Max, Paramount+"],
-            'SUPER_COMBO_DE_PELICULA': [31000, "Netflix, Prime video, Disney+ Estándar, Max, Paramount+, Plex"],
-        },};
+            'COMBO_INCREIBLE': [15000, "Plex, Crunchyroll, Paramount+, Vix+", "plex_crunchyroll_paramount_vix.png"],
+            'COMBO_DE_SIEMPRE': [24000, "Netflix, Max, Prime video, Disney+ Estándar", "netflix_max_prime_disney.png"],
+            'EL_MEJOR_COMBO': [17500, "Paramount+, Max, Prime video, Disney+ Estándar", "paramount_max_prime_disney.png"],
+            'COMBO_DE_4': [22500, "Netflix, Paramount+, Disney+ Estándar, Max", "netflix_paramount_disney_max.png"],
+            'COMBO_DE_PELICULA': [27500, "Netflix, Prime video, Disney+ Estándar, Max, Paramount+", "netflix_prime_disney_max_paramount.png"],
+            'SUPER_COMBO_DE_PELICULA': [31000, "Netflix, Prime video, Disney+ Estándar, Max, Paramount+, Plex", "netflix_prime_disney_max_paramount_plex.png"],
+        },
+    };
 
     let duokeys = Object.keys(prices.Duos);
     let trikeys = Object.keys(prices.Tridentes);
     let combkeys = Object.keys(prices.Combos);
-
-    let src = 'src/routes/combos/collage_streaming.png'
 
     let activeTab = $state('tab1');
 
@@ -53,6 +53,8 @@
             .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
             .join(' ');
     }
+
+    let src = "src/assets/img/duos/max_prime.png"
 
     let msg = {
 
@@ -115,14 +117,14 @@
                 <div class="grid grid-4">
                     {#each duokeys.slice(0, 4) as key}
                         <div data-tooltip={prices.Duos[key][1]}>
-                            <Cards showSelect={false} product={capitalize(key)} price={prices.Duos[key][0]} {src}/>
+                            <Cards showSelect={false} product={capitalize(key)} price={prices.Duos[key][0]} src={`src/assets/img/duos/${prices.Duos[key][2]}`}/>
                         </div>
                     {/each}
                 </div>
                 <div class="grid grid-4">
                     {#each duokeys.slice(4) as key}
                     <div data-tooltip={prices.Duos[key][1]}>
-                        <Cards showSelect={false} product={capitalize(key)} price={prices.Duos[key][0]} {src}/>
+                        <Cards showSelect={false} product={capitalize(key)} price={prices.Duos[key][0]} src={`src/assets/img/duos/${prices.Duos[key][2]}`}/>
                     </div>
                     {/each}
                 </div>
@@ -134,14 +136,24 @@
                 <div class="grid grid-3">
                     {#each trikeys.slice(0, 3) as key}
                     <div data-tooltip={prices.Tridentes[key][1]}>
-                        <Cards showSelect={false} product={capitalize(key)} price={prices.Tridentes[key][0]} {src}/>
+                        <Cards 
+                            showSelect={false} 
+                            product={capitalize(key)} 
+                            price={prices.Tridentes[key][0]} 
+                            src={`src/assets/img/tridentes/${prices.Tridentes[key][2]}`}
+                        />
                     </div>
                     {/each}
                 </div>
                 <div class="grid grid-3">
                     {#each trikeys.slice(3) as key}
                     <div data-tooltip={prices.Tridentes[key][1]}>
-                        <Cards showSelect={false} product={capitalize(key)} price={prices.Tridentes[key][0]} {src}/>
+                        <Cards 
+                            showSelect={false} 
+                            product={capitalize(key)} 
+                            price={prices.Tridentes[key][0]} 
+                            src={`src/assets/img/tridentes/${prices.Tridentes[key][2]}`}
+                        />
                     </div>
                     {/each}
                 </div>
@@ -152,14 +164,24 @@
                 <div class="grid grid-3">
                     {#each combkeys.slice(0, 3) as key}
                     <div data-tooltip={prices.Combos[key][1]}>
-                        <Cards showSelect={false} product={capitalize(key)} price={prices.Combos[key][0]} {src}/>
+                        <Cards 
+                            showSelect={false} 
+                            product={capitalize(key)} 
+                            price={prices.Combos[key][0]} 
+                            src={`src/assets/img/combos/${prices.Combos[key][2]}`}
+                        />
                     </div>
                     {/each}
                 </div>
                 <div class="grid grid-3">
                     {#each combkeys.slice(3) as key}
                     <div data-tooltip={prices.Combos[key][1]}>
-                        <Cards showSelect={false} product={capitalize(key)} price={prices.Combos[key][0]} {src}/>
+                        <Cards 
+                            showSelect={false} 
+                            product={capitalize(key)} 
+                            price={prices.Combos[key][0]} 
+                            src={`src/assets/img/combos/${prices.Combos[key][2]}`}
+                        />
                     </div>
                     {/each}
                 </div>
