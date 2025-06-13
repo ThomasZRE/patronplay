@@ -5,7 +5,7 @@
 <footer class="container">
     <nav class="footer-grid">
         <div class="brand">
-            <div class="item"><strong>© 2023-2025 PatrónPlay</strong></div>
+            <div class="item"><strong>© 2023-2025 Patrón Play</strong></div>
         </div>
         
         <div class="contact">
@@ -34,15 +34,17 @@
         </div>
 
         <div class="communities">
-            <h5>Comunidades</h5>
+            <h5>Correo electrónico</h5>   <!--Comunidades-->
             <div class="community-info">
-                <span>Telegram:</span>
-                <div class="community">Soon to come</div>
+                <span>📧 patronplay10@gmail.com</span>
+                <!--<div class="community">Soon to come</div> -->
             </div>
+            <!-- Later 
             <div class="community-info">
                 <span>Whatsapp:</span>
                 <div class="community">Soon to come</div>
             </div>
+            -->
         </div>
     </nav>
 </footer>

@@ -3,6 +3,11 @@
     import '@picocss/pico/css/pico.colors.min.css'
     export let mainPage = "/";
 
+    
+    export let title = "Servicios de Streaming";
+    export let subtitle = "Donde encuentras las mejores cuentas"
+    export let hideIcon = true;
+
     //"src\assets\img\Logo-positivo-resumido-Patrón-Play---SVG.png"
 </script>
 
@@ -14,12 +19,16 @@
 
 <nav class="container">
     <ul>
-        <li><a href={mainPage}><img src="\src\assets\img\Logo-principal-resumido-Patrón-Play-croped-PNG.png" alt="PatronPlay" width=180>
-        </a></li>   
+        <li><hgroup>
+            <h1>{title}</h1>
+            <h3>{subtitle}</h3>
+        </hgroup>
+        <li hidden={hideIcon}><a href={mainPage}><img src="\src\assets\img\Logo-principal-resumido-Patrón-Play-croped-PNG.png" alt="PatronPlay" width=180>
+        </a></li>
     </ul>
     <ul>
-        <li><a href="/terms-and-conditions">Términos y condiciones</a></li>
         <li><a href="/about">Sobre nosotros</a></li>
+        <li><a href="/terms-and-conditions">Términos y condiciones</a></li>
     </ul>    
 </nav>
 <br>

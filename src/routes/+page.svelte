@@ -4,7 +4,12 @@
     import Main from './Main.svelte';
     import Footer from './Footer.svelte';
 
+    
+
+    // TODO: Change header image for title
+
 </script>
+
 
 <Header /> 
 

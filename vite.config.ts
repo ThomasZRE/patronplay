@@ -6,5 +6,14 @@ export default defineConfig({
 	plugins: [
 		sveltekit(),
 		tailwindcss()
-	]
+	],
+	preview: {
+		port: 80,
+		strictPort: true,
+		host: '', 
+		allowedHosts: true,
+	},
+	server: {
+		allowedHosts: true,
+	},
 });	

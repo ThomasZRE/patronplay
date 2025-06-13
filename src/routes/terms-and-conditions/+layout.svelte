@@ -8,3 +8,4 @@
 
 </script>
 
+{@render children()}

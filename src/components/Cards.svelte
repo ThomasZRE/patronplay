@@ -7,17 +7,29 @@
     let {
         product,
         price,
+        tag = 0,
         src = "../assets/img/icons/collage_streaming.png",
         showSelect = true,
         //class: className = ''
     } = $props();
 
-    //TODO: Fix number format
-    //console.log(
-    //     new Intl.NumberFormat("es-es", {style: "currency", currency: "EUR"}).format(
-    //         price,
-    //     ),
-    // );
+    // TODO: Fix number format
+
+    //console.log(format('es-CO', 'COP', price));
+
+    function format(locale: string, currency: string, price) {
+        return new Intl.NumberFormat(locale, {
+            style: "currency", 
+            currency,
+            currencyDisplay: "code"
+        })
+        .format(price)
+        .replace(currency, "")
+        .replace(",00", "")
+        .trim();
+    }
+
+    //price = format('es-CO', 'COP', price);
 </script>
 
 <article>
@@ -31,7 +43,10 @@
                     <div class="product-info">
                         <p id="product-name"><strong>{product}</strong></p>
                         <div class="price-container">
-                            <p>${price}</p>
+                            <p>
+                                {#if tag !== 0}
+                                <s>${format('es-CO', 'COP', tag)}</s>
+                                {/if}  ${format('es-CO', 'COP', price)}</p>
                             <!--
                             {#if showSelect}
                                 <select name="products" id="tipo-producto" aria-label="1 pantalla">
@@ -108,6 +123,14 @@
         align-items: center;
         justify-content: start;
         margin: 0.5rem 0;
+    }
+
+    .price-container p {
+        font-size:smaller;
+    }
+
+    p s {
+        color: var(--pico-h6-color);
     }
 
     [role="button"] {

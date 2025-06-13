@@ -66,7 +66,7 @@
 <main class="container">
     <section class="head-section">
         <hgroup>
-            <h1>Combos PatronPlay</h1>
+            <h1>Combos Patrón Play</h1>
             <h3>¡Los mejores packs de cuentas especial de la casa!</h3>
         </hgroup>
     </section>
