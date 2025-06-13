@@ -68,7 +68,7 @@
                 <p>
                     Estamos listos para que descubras un mundo de entretenimiento liderado por la calidad y confianza que nos caracteriza.
                 </p>
-                <a href="https://api.whatsapp.com/send?phone=573217336649&text=Hola,%20me%20interesa%20darle%20Play%20🚀🎮!" class="cta-button">
+                <a href="https://api.whatsapp.com/send?phone=573217336649&text=Hola,%20me%20interesa%20darle%20Play%20a%20sus%20servicios%20🚀🎮!" class="cta-button">
                     ¡Escríbenos y dale "Play" a Patrón Play! 🚀🎮
                 </a>
             </div>
