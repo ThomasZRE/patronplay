@@ -1,9 +1,8 @@
 <script lang="ts">
     import '@picocss/pico/css/pico.colors.min.css'
+    import { base } from '$app/paths';
     
-
-    // https://about.netflix.com/images/meta/netflix-symbol-black.png
-
+    
     let {
         product,
         price,
@@ -13,11 +12,8 @@
         //class: className = ''
     } = $props();
 
-    // TODO: Fix number format
-
-    //console.log(format('es-CO', 'COP', price));
-
-    function format(locale: string, currency: string, price) {
+   
+    function format(locale: string, currency: string, price: number) {
         return new Intl.NumberFormat(locale, {
             style: "currency", 
             currency,
@@ -29,14 +25,13 @@
         .trim();
     }
 
-    //price = format('es-CO', 'COP', price);
 </script>
 
 <article>
     <aside>
         <nav class=container-fluid>
             <ul class="image">
-                <img src={src} alt=product>
+                <img src="{base + src}" alt="{product}">
             </ul>
             <ul class="in-content">
                 <hgroup class="product-container">
