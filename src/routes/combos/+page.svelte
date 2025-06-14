@@ -117,14 +117,14 @@
                 <div class="grid grid-4">
                     {#each duokeys.slice(0, 4) as key}
                         <div data-tooltip={prices.Duos[key][1]}>
-                            <Cards showSelect={false} product={capitalize(key)} price={prices.Duos[key][0]} src={`src/assets/img/duos/${prices.Duos[key][2]}`}/>
+                            <Cards showSelect={false} product={capitalize(key)} price={prices.Duos[key][0]} src={`src/lib/assets/img/duos/${prices.Duos[key][2]}`}/>
                         </div>
                     {/each}
                 </div>
                 <div class="grid grid-4">
                     {#each duokeys.slice(4) as key}
                     <div data-tooltip={prices.Duos[key][1]}>
-                        <Cards showSelect={false} product={capitalize(key)} price={prices.Duos[key][0]} src={`src/assets/img/duos/${prices.Duos[key][2]}`}/>
+                        <Cards showSelect={false} product={capitalize(key)} price={prices.Duos[key][0]} src={`src/lib/assets/img/duos/${prices.Duos[key][2]}`}/>
                     </div>
                     {/each}
                 </div>
@@ -140,7 +140,7 @@
                             showSelect={false} 
                             product={capitalize(key)} 
                             price={prices.Tridentes[key][0]} 
-                            src={`src/assets/img/tridentes/${prices.Tridentes[key][2]}`}
+                            src={`src/lib/assets/img/tridentes/${prices.Tridentes[key][2]}`}
                         />
                     </div>
                     {/each}
@@ -152,7 +152,7 @@
                             showSelect={false} 
                             product={capitalize(key)} 
                             price={prices.Tridentes[key][0]} 
-                            src={`src/assets/img/tridentes/${prices.Tridentes[key][2]}`}
+                            src={`src/lib/assets/img/tridentes/${prices.Tridentes[key][2]}`}
                         />
                     </div>
                     {/each}
@@ -168,7 +168,7 @@
                             showSelect={false} 
                             product={capitalize(key)} 
                             price={prices.Combos[key][0]} 
-                            src={`src/assets/img/combos/${prices.Combos[key][2]}`}
+                            src={`src/lib/assets/img/combos/${prices.Combos[key][2]}`}
                         />
                     </div>
                     {/each}
@@ -180,7 +180,7 @@
                             showSelect={false} 
                             product={capitalize(key)} 
                             price={prices.Combos[key][0]} 
-                            src={`src/assets/img/combos/${prices.Combos[key][2]}`}
+                            src={`src/lib/assets/img/combos/${prices.Combos[key][2]}`}
                         />
                     </div>
                     {/each}

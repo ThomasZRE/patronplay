@@ -23,7 +23,7 @@
             <h1>{title}</h1>
             <h3>{subtitle}</h3>
         </hgroup>
-        <li hidden={hideIcon}><a href={mainPage}><img src="\src\assets\img\Logo-principal-resumido-Patrón-Play-croped-PNG.png" alt="PatronPlay" width=180>
+        <li hidden={hideIcon}><a href={mainPage}><img src="\src\lib\assets\img\Logo-principal-resumido-Patrón-Play-croped-PNG.png" alt="PatronPlay" width=180>
         </a></li>
     </ul>
     <ul>

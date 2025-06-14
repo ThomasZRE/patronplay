@@ -1,10 +1,10 @@
 <script lang=ts>
     //import '../styles/app.css';
-    import '@picocss/pico/css/pico.css'
-    import Cards from '../components/Cards.svelte'
+    import '@picocss/pico/css/pico.css';
+    import Cards from '../components/Cards.svelte';
 
-    export let title = "Servicios de Streaming";
-    export let subtitle = "Donde encuentras las mejores cuentas"
+    let title = "Servicios de Streaming";
+    let subtitle = "Donde encuentras las mejores cuentas";
     export let prices = {
         "Netflix": 11500,   // none
         "Prime": 6500,      // Agotado
@@ -45,41 +45,41 @@
     
     <section id="product-cards">
         <div class='grid grid-4'>
-            <Cards showSelect product="Netflix" price={prices.Netflix} tag={tags?.Netflix || tag} src="\src\assets\img\icons\Netflix-symbol.png" />
+            <Cards showSelect product="Netflix" price={prices.Netflix} tag={tags?.Netflix || tag} src="/src/lib/assets/img/icons/Netflix-symbol.png" />
 
-            <Cards showSelect product="Disney+ Estándar" price={prices.DisneyPlus} tag={tags?.DisneyPlus || tag} src="\src\assets\img\icons\disney-symbol.jpg"/>
+            <Cards showSelect product="Disney+ Estándar" price={prices.DisneyPlus} tag={tags?.DisneyPlus || tag} src="/src/lib/assets/img/icons/disney-symbol.jpg"/>
             
-            <Cards showSelect product="Prime Video" price={prices.Prime} tag={tags?.Prime || tag} src="\src\assets\img\icons\prime-symbol.png"/>
+            <Cards showSelect product="Prime Video" price={prices.Prime} tag={tags?.Prime || tag} src="/src/lib/assets/img/icons/prime-symbol.png"/>
 
-            <Cards showSelect product="Paramount+" price={prices.Paramount} tag={tags?.Paramount || tag} src="\src\assets\img\icons\paramount-symbol.png"/>
+            <Cards showSelect product="Paramount+" price={prices.Paramount} tag={tags?.Paramount || tag} src="/src/lib/assets/img/icons/paramount-symbol.png"/>
         </div>
     
         <div class='grid grid-4'>
-            <Cards showSelect product="ChatGPT Plus" price={prices.ChatGPT} tag={tags?.ChatGPT || tag} src="\src\assets\img\icons\ChatGPT.png"/>
-            <Cards showSelect product="Disney+ Premium" price={prices.DisneyPremium} tag={tags?.DisneyPremium || tag} src="\src\assets\img\icons\DPremium.png" />
-            <Cards showSelect product="Max" price={prices.Max} tag={tags?.Max || prices.Max + 1000} src="\src\assets\img\icons\max-symbol.jpg"/>
-            <Cards showSelect product="Crunchyroll" price={prices.Crunchyroll} tag={tags?.Crunchyroll || prices.Crunchyroll+1000} src="\src\assets\img\icons\crunchyroll-symbol.png"/>
+            <Cards showSelect product="ChatGPT Plus" price={prices.ChatGPT} tag={tags?.ChatGPT || tag} src="/src/lib/assets/img/icons/ChatGPT.png"/>
+            <Cards showSelect product="Disney+ Premium" price={prices.DisneyPremium} tag={tags?.DisneyPremium || tag} src="/src/lib/assets/img/icons/DPremium.png" />
+            <Cards showSelect product="Max" price={prices.Max} tag={tags?.Max || prices.Max + 1000} src="/src/lib/assets/img/icons/max-symbol.jpg"/>
+            <Cards showSelect product="Crunchyroll" price={prices.Crunchyroll} tag={tags?.Crunchyroll || prices.Crunchyroll+1000} src="/src/lib/assets/img/icons/crunchyroll-symbol.png"/>
 
         </div>
         
         <div class='grid grid-4'>
-            <Cards showSelect product="Vix" price={prices.Vix} tag={tags?.Vix || tag} src="\src\assets\img\icons\vix-symbol.png"/>
-            <Cards showSelect product="Plex" price={prices.Plex} tag={tags?.Plex || tag} src="\src\assets\img\icons\plex-symbol.png"/>
-            <Cards showSelect product="IPTV Smarters" price={prices.IPTV} tag={tags?.IPTV || tag} src="\src\assets\img\icons\iptv-symbol.png"/>
-            <Cards showSelect product="Apple TV" price={prices.Apple} tag={tags?.Apple || tag} src="\src\assets\img\icons\apple-symbol.png"/>
+            <Cards showSelect product="Vix" price={prices.Vix} tag={tags?.Vix || tag} src="/src/lib/assets/img/icons/vix-symbol.png"/>
+            <Cards showSelect product="Plex" price={prices.Plex} tag={tags?.Plex || tag} src="/src/lib/assets/img/icons/plex-symbol.png"/>
+            <Cards showSelect product="IPTV Smarters" price={prices.IPTV} tag={tags?.IPTV || tag} src="/src/lib/assets/img/icons/iptv-symbol.png"/>
+            <Cards showSelect product="Apple TV" price={prices.Apple} tag={tags?.Apple || tag} src="/src/lib/assets/img/icons/apple-symbol.png"/>
         </div>
 
         <div class="grid grid-4">
-            <Cards showSelect product="Canva Pro" price={prices.Canva} tag={tags?.Canva || prices.Canva+4000} src="\src\assets\img\icons\canva-symbol.png"/>
-            <Cards showSelect product="Youtube Premium" price={prices.Youtube} tag={tags?.Youtube || tag} src="\src\assets\img\icons\youtube-symbol.png"/>
-            <Cards showSelect product="Spotify" price={prices.Spotify} tag={tags?.Spotify || tag} src="\src\assets\img\icons\spotify-symbol.png"/>
-            <Cards showSelect product="DGO con Win+" price={prices.DGO} tag={tags?.DGO || tag} src="\src\assets\img\icons\dgo-symbol.png"/>
+            <Cards showSelect product="Canva Pro" price={prices.Canva} tag={tags?.Canva || prices.Canva+4000} src="/src/lib/assets/img/icons/canva-symbol.png"/>
+            <Cards showSelect product="Youtube Premium" price={prices.Youtube} tag={tags?.Youtube || tag} src="/src/lib/assets/img/icons/youtube-symbol.png"/>
+            <Cards showSelect product="Spotify" price={prices.Spotify} tag={tags?.Spotify || tag} src="/src/lib/assets/img/icons/spotify-symbol.png"/>
+            <Cards showSelect product="DGO con Win+" price={prices.DGO} tag={tags?.DGO || tag} src="/src/lib/assets/img/icons/dgo-symbol.png"/>
         </div>
 
-        <div class="grid grid 4">
-            <Cards showSelect product="Mubi" price={prices.mubi} tag={tags?.mubi || tag} src="\src\assets\img\icons\mubi-symbol.png"/>
-            <Cards showSelect product="Rakuten VIKI" price={prices.rakuten} tag={tags?.rakuten || tag} src="\src\assets\img\icons\rakuten-symbol.png"/>
-            <Cards showSelect product="Gemini Advanced" price={prices.gemini} tag={15000} src="\src\assets\img\icons\gemini-symbol.png"/>
+        <div class="grid grid-4">
+            <Cards showSelect product="Mubi" price={prices.mubi} tag={tags?.mubi || tag} src="/src/lib/assets/img/icons/mubi-symbol.png"/>
+            <Cards showSelect product="Rakuten VIKI" price={prices.rakuten} tag={tags?.rakuten || tag} src="/src/lib/assets/img/icons/rakuten-symbol.png"/>
+            <Cards showSelect product="Gemini Advanced" price={prices.gemini} tag={15000} src="/src/lib/assets/img/icons/gemini-symbol.png"/>
             <div></div>
         </div>
     </section>
@@ -93,17 +93,9 @@
         justify-content: space-between;
     }
 
-    #Head-section h6 {
-        color: var(--pico-small-color);
-    }
-
     #Head-section a {
         text-decoration: none;
         color: var(--pico-small-color);
-    }
-
-    #Head-section h6:hover {
-        color: var(--pico-h6-color);
     }
 
     #Combos-text {
