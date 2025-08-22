@@ -1,12 +1,15 @@
 <!--TODO: Build proper Header-->
 <script lang='ts'>
     import '@picocss/pico/css/pico.colors.min.css'
-    export let mainPage = "/";
+	import type { PageProps } from './$types';
 
+    let props = $props();
+
+    let mainPage = $state("/");
     
-    export let title = "Servicios de Streaming";
-    export let subtitle = "Donde encuentras las mejores cuentas"
-    export let hideIcon = true;
+    let title = $state("Servicios de Streaming");
+    let subtitle = $state("Donde encuentras las mejores cuentas")
+    let hideIcon = $state(true);
 
     //"src\assets\img\Logo-positivo-resumido-Patrón-Play---SVG.png"
 </script>
@@ -27,8 +30,11 @@
         </a></li>
     </ul>
     <ul>
-        <li><a href="/about">Sobre nosotros</a></li>
-        <li><a href="/terms-and-conditions">Términos y condiciones</a></li>
+        <li><a href="/codespage">Página de códigos</a></li>
+        {#if !props.progress}
+            <li><a href="/about">Sobre nosotros</a></li>
+            <li><a href="/terms-and-conditions">Términos y condiciones</a></li>
+        {/if}
     </ul>    
 </nav>
 <br>
