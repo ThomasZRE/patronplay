@@ -30,7 +30,7 @@
         </a></li>
     </ul>
     <ul>
-        <li><a href="/codespage">Página de códigos</a></li>
+        <li><a href="/gptcodespage">Página de códigos</a></li>
         {#if !props.progress}
             <li><a href="/about">Sobre nosotros</a></li>
             <li><a href="/terms-and-conditions">Términos y condiciones</a></li>
