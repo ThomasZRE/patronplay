@@ -1,7 +1,7 @@
 import { error } from "@sveltejs/kit";
-import { BASE_URL } from "$env/static/private";
+//import { BASE_URL } from "$env/static/private";
 
-const baseUrl = BASE_URL;
+const baseUrl = "https://chatgptcodespage.onrender.com/api/codes/latest";
 
 async function getLatest() {
     const response = await fetch(baseUrl);

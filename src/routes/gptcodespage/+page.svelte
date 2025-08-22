@@ -3,18 +3,12 @@
 </svelte:head>
 
 <script lang="ts">
-    //import type { PageProps } from './$types';
     import "./codes.css";
     import CodeGpt from '../../components/CodeGPT.svelte';
     import { getLatest } from './codes';
 
-    //let { data }: PageProps = $props();
-
     let email = $state('');
-    //let codes: any[] = [];
     let loading = $state();
-
-    //$inspect(email).with(console.trace);
 
 
     async function hookEmails(event: any) {
@@ -24,8 +18,6 @@
         // Filters by receiver and reduces the result
         return result.filter((code: any) => code.to === email).slice(0,1)
     }
-
-    // hookEmails(event)
 
 </script>
 <div class="body">
