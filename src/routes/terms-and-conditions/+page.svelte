@@ -1,7 +1,5 @@
 <script lang="ts">
-    import '@picocss/pico/css/pico.css';
-    import '@picocss/pico/css/pico.colors.min.css'
-    import "../../styles/app.css";
+    import "../../app.css";
     import type { PageData } from './$types';
 
     let { data }: { data: PageData } = $props();

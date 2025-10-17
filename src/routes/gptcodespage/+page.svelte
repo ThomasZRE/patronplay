@@ -4,7 +4,7 @@
 
 <script lang="ts">
     import "./codes.css";
-    import CodeGpt from '../../components/CodeGPT.svelte';
+    import CodeGpt from '$lib/components/CodeGPT.svelte';
     import { getLatest } from './codes';
 
     let email = $state('');
