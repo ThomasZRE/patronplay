@@ -11,14 +11,21 @@
     import netflixImg from '$lib/static/img/icons/Netflix-symbol.webp';
 
     // Flowbite imports
-    import {
-        Heading,
-        P,
-    } from 'flowbite-svelte';
+    import { Heading } from 'flowbite-svelte';
     
     let { data }: PageProps = $props();
-    let { docs }  = data.collection;    // Services collection
-    let { user } = data;                // user session
+
+    // Safety check for services
+    let services  = data.collection?.docs ?? [];    // Services collection
+    let { user } = data;    // user session
+
+    // Derived user role, gives client if no role found
+    let userRole: 'client' | 'distributor' = 
+        user?.roles?.includes('distributor') ? 'distributor' : 'client';
+
+    // Typechecks tokens as number
+    let userBalance = $state(Number(user?.tokens ?? 0));
+    console.log("Current roles for user:", userRole);
 </script>
 
 
@@ -30,8 +37,16 @@
     </div>
 
     <div class="grid grid-flow-col grid-cols-4 gap-4 mx-25 my-5">
-        {#each docs as service}
-            <ServiceCard img={netflixImg} name={service.service} price={service.price.toLocaleString('es-CO')} />
+        {#each services as service}
+            <ServiceCard  
+                userBalance={userBalance ?? 0} 
+                img={netflixImg} 
+                name={service.service} 
+                price={service.price[userRole] ?? 0}
+                userId={String(user.id)}
+                serviceId={String(service.id)}
+                stock={Number(service.stock ?? 0)}
+            />
         {/each}
     </div>
 {:else}
