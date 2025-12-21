@@ -1,23 +1,21 @@
 <script lang='ts'>
-    // TODO: Learn some Typescript
     import "../app.css";
 	import type { PageProps } from './$types';
-
-    // Components
 	import WorkInProgress from './WorkInProgress.svelte';
     import ServiceCard from "$lib/components/ServiceCard.svelte";
-
-    // Assets
     import netflixImg from '$lib/static/img/icons/Netflix-symbol.webp';
-
-    // Flowbite imports
     import { Heading } from 'flowbite-svelte';
-    
+	
+
     let { data }: PageProps = $props();
 
     // Safety check for services
+    const PAYLOAD_URL = data.payloadServer;
     let services  = data.collection?.docs ?? [];    // Services collection
     let { user } = data;    // user session
+
+    console.log("Payload URL:", PAYLOAD_URL);
+    console.log("Service img url:", services[0].image.url);
 
     // Derived user role, gives client if no role found
     let userRole: 'client' | 'distributor' = 
@@ -25,7 +23,6 @@
 
     // Typechecks tokens as number
     let userBalance = $state(Number(user?.tokens ?? 0));
-    console.log("Current roles for user:", userRole);
 </script>
 
 
@@ -36,11 +33,11 @@
         <p class="mb-6 text-lg lg:text-xl text-gray-300!">Donde encuentras las mejores cuentas. Entrega inmediata</p>
     </div>
 
-    <div class="grid grid-flow-col grid-cols-4 gap-4 mx-25 my-5">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-4 sm:px-10 md:px-20 py-10">
         {#each services as service}
             <ServiceCard  
                 userBalance={userBalance ?? 0} 
-                img={netflixImg} 
+                img={service.image?.url ? `${PAYLOAD_URL.replace("api", "")}${service.image.url}` : netflixImg} 
                 name={service.service} 
                 price={service.price[userRole] ?? 0}
                 userId={String(user.id)}

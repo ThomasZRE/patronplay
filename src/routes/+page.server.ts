@@ -2,7 +2,6 @@ import type { PageServerLoad } from './$types';
 import { PayloadSDK } from '@payloadcms/sdk';
 import { PAYLOAD_SERVER } from '$env/static/private';
 import { redirect, type Actions } from '@sveltejs/kit';
-import { getSession } from '$lib/server/getSession';
 import { makeOrder } from '$lib/server/makeOrder';
 
 const payload = new PayloadSDK({
@@ -11,8 +10,10 @@ const payload = new PayloadSDK({
 
 export const load = (async({ cookies }) => { 
     return {
+        payloadServer: PAYLOAD_SERVER,
         collection: await payload.find({
-            collection: 'services'
+            collection: 'services',
+            depth: 1
         })
     }
 }) satisfies PageServerLoad;
