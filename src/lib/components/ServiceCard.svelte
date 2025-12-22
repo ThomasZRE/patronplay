@@ -21,8 +21,7 @@
     let isSubmitting = $state(false);
 
     let isSoldOut = $derived(stock <= 0);
-    //console.log("Value of issoldout:", isSoldOut);
-    let isLocked = $derived(isSoldOut ||userBalance < price || isSubmitting);
+    let isLocked = $derived(isSoldOut || Number(userBalance) < Number(price) || isSubmitting);
 
     const formatCurrency = (val: number) => val.toLocaleString('es-CO');
 

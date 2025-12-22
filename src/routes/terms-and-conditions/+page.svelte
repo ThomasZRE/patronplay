@@ -6,7 +6,7 @@
 </script>
 
 <main class="bg-gray-100 p-8">
-    <div class="container bg-white shadow-lg rounded-lg p-8 md:p-12">
+    <div class="container bg-gray-100! shadow-lg rounded-lg p-8 md:p-12">
     <h1 class="text-center text-4xl md:text-5xl font-bold text-blue-800 mb-8">Términos y Condiciones de Servicio</h1>
             <!-- Introducción -->
             <p class="text-gray-700 mb-6">
@@ -297,7 +297,7 @@
             <p class="mb-4">
                 El Proveedor se reserva el derecho de modificar estos Términos y Condiciones en cualquier momento. Cualquier cambio será anunciado previamente y la fecha de la última actualización se indicará en la parte superior del documento. Asimismo, en caso de realizarse modificaciones, el Proveedor se compromete a notificar públicamente a sus clientes por los medios de comunicación habituales.
             </p>
-        </div>
+    </div>
 </main>
 
 

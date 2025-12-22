@@ -8,7 +8,7 @@
     
     const order = $derived(data.order);
     
-        // Function that adds x days to a date
+    // Function that adds x days to a date
     function addDays(date: Date, days: number): Date {
         let result = new Date(date);
         result.setDate(result.getDate() + days);
