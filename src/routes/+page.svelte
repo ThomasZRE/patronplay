@@ -25,7 +25,7 @@
     // Image dictionary
     let img: Record<string, string> = {
         'Netflix': netflixImg, //'../lib/static/img/netflix_img.png',
-        'Disney Plus': disney_premium, //'../lib/static/img/disney_premium_img.png',
+        'Disney Premium': disney_premium, //'../lib/static/img/disney_premium_img.png',
         'Prime Video': prime_img, //'../lib/static/img/prime_img.png',
         'ChatGPT': chatgpt_img, //'../lib/static/img/chatgpt_img.png'
         'Spotify': spotify_img,
