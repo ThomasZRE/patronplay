@@ -135,30 +135,29 @@
                     </TableBodyRow>
                 {/each}
             </TableBody>
-
-            <div class="flex justify-center items-center gap-4 mt-8">
-                <Button
-                    disabled={!pagination.hasPrevPage}
-                    href="?page={pagination.page - 1}"
-                    color="alternative"
-                    size="sm"
-                >
-                    Anterior
-                </Button>
-                
-                <span class="text-gray-400">
-                    Página <strong>{pagination.page}</strong> de {pagination.totalPages}
-                </span>
-
-                <Button
-                    disabled={!pagination.hasNextPage}
-                    href="?page={pagination.page + 1}"
-                    color="alternative"
-                    size="sm"
-                >
-                    Siguiente
-                </Button>
-            </div>
         </Table>
+        <div class="flex justify-center items-center gap-4 mt-8">
+            <Button
+                disabled={!pagination.hasPrevPage}
+                href="?page={pagination.page - 1}"
+                color="alternative"
+                size="sm"
+            >
+                Anterior
+            </Button>
+            
+            <span class="text-gray-400">
+                Página <strong>{pagination.page}</strong> de {pagination.totalPages}
+            </span>
+
+            <Button
+                disabled={!pagination.hasNextPage}
+                href="?page={pagination.page + 1}"
+                color="alternative"
+                size="sm"
+            >
+                Siguiente
+            </Button>
+        </div>
     {/if}
 </div>

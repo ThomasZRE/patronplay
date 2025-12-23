@@ -1,5 +1,11 @@
 import { redirect } from "@sveltejs/kit";
 import type { Actions } from "./$types";
+import type { PageServerLoad } from "../$types";
+
+
+export const load: PageServerLoad = async () => {
+    throw redirect(303, '/');
+}
 
 
 export const actions: Actions = {
@@ -10,17 +16,14 @@ export const actions: Actions = {
         // Log before delete
         console.log("[ACTION] Deleting cookie 'sessionid'...");
 
-        // TODO: remove httpOnly and secure when deploying
         // 1. Delete the cookie
         cookies.set('sessionid', '', {
             path: '/',
             expires: new Date(0),
-            //secure: false,   // Might delete later
-            //httpOnly: true
         });
 
         console.log("[ACTION] Cookie set to expire. Throwing redirect...");
-        // 2. Force redirect to home
-        throw redirect  (303, '/');
+        // 2. Force redirect to login
+        throw redirect(303, '/login');
     }
 };

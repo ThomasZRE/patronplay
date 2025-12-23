@@ -23,7 +23,7 @@
 
 
     // Image dictionary
-    let img = {
+    let img: Record<string, string> = {
         'Netflix': netflixImg, //'../lib/static/img/netflix_img.png',
         'Disney Plus': disney_premium, //'../lib/static/img/disney_premium_img.png',
         'Prime Video': prime_img, //'../lib/static/img/prime_img.png',
@@ -64,7 +64,7 @@
         {#each services as service} 
             <ServiceCard  
                 userBalance={userBalance ?? 0} 
-                img={img[service.service] ?? ''}
+                img={img[service.service as keyof typeof img] ?? ''}
                 name={service.service} 
                 price={Number(service.price?.[userRole]) ?? 0}
                 userId={String(user.id)}

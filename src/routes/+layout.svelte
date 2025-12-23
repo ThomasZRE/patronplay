@@ -4,6 +4,7 @@
     import pplayLogo from '$lib/static/pplay_christmas.png';
     import { applyAction, enhance } from '$app/forms';
 
+
     let { children, data } = $props();
 
     let user = $derived(data.user);
@@ -13,9 +14,13 @@
     const isActive = (path: string) => $page.url.pathname === path;
 </script>
 
+<svelte:head>
+    <link rel="icon" href={pplayLogo}>
+    <title>Patrónplay</title>
+</svelte:head>
 
 <nav 
-    class="sticky top-0 z-50 w-full border-b border-zinc-900 bg-transparent px-4 py-3"
+    class="sticky top-0 z-50 w-full border-b bg-transparent border-transparent px-4 py-3"
 >
     <div class="mx-auto flex max-w-7xl items-center justify-between">
         
@@ -96,20 +101,7 @@
             <a hidden href="/terms-and-conditions" class="text-zinc-400 hover:text-white" onclick={() => isMenuOpen = false}>Términos y condiciones</a>
             <a href="/gptcodespage" class="text-zinc-400 hover:text-white" onclick={() => isMenuOpen = false}>Códigos de ChatGPT</a>
             {#if isMenuOpen && user}
-                <!-- TODO: Fix logout redirection-->
-                <form method="POST" action="/logout" use:enhance={() => {
-                    console.log("[CLIENT] Form submission started");
-                    alert("DEBUG: Submitting logout form...");
-                    return async ({ result }) => {
-                        console.log("[CLIENT] Server response received:", result);
-                        alert(`DEBUG: Result Type: ${result.type}, Status: ${result.status}`);
-                        
-                        isMenuOpen = false;
-                        await applyAction(result);
-
-                        console.log("[CLIENT] applyAction finished");                        
-                    };
-                }}>
+                <form method="POST" action="/logout">
                     <button 
                         type="submit"
                         class="rounded bg-red-600 px-3 py-1.5 text-xs font-bold text-white hover:bg-red-700"
