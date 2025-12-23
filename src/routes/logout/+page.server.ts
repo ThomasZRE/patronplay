@@ -15,8 +15,8 @@ export const actions: Actions = {
         cookies.set('sessionid', '', {
             path: '/',
             expires: new Date(0),
-            secure: false,   // Might delete later
-            httpOnly: true
+            //secure: false,   // Might delete later
+            //httpOnly: true
         });
 
         console.log("[ACTION] Cookie set to expire. Throwing redirect...");

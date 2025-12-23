@@ -1,5 +1,4 @@
 <script lang="ts">
-    //import '@picocss/pico';
     import "../../app.css";
     
     import type { PageData } from './$types';

@@ -3,7 +3,16 @@
 	import type { PageProps } from './$types';
 	import WorkInProgress from './WorkInProgress.svelte';
     import ServiceCard from "$lib/components/ServiceCard.svelte";
+
+    // Importing static images
     import netflixImg from '$lib/static/img/netflix_img.png';
+    import chatgpt_img from '$lib/static/img/chatgpt_img.png';
+    import prime_img from '$lib/static/img/prime_img.png';
+    import disney_premium from '$lib/static/img/disney_premium_img.png';
+    import disney_estandar from '$lib/static/img/disney_estandar_img.png';
+    import spotify_img from '$lib/static/img/spotify_img.png';
+    import hbo_img from '$lib/static/img/hbo_img.png';
+
     import { Heading } from 'flowbite-svelte';
 
     let { data }: PageProps = $props();
@@ -15,15 +24,18 @@
 
     // Image dictionary
     let img = {
-        'Netflix': '../lib/static/img/netflix_img.png',
-        'Disney Plus': '../lib/static/img/disney_premium_img.png',
-        'Prime Video': '../lib/static/img/prime_img.png',
-        'ChatGPT': '../lib/static/img/chatgpt_img.png'
+        'Netflix': netflixImg, //'../lib/static/img/netflix_img.png',
+        'Disney Plus': disney_premium, //'../lib/static/img/disney_premium_img.png',
+        'Prime Video': prime_img, //'../lib/static/img/prime_img.png',
+        'ChatGPT': chatgpt_img, //'../lib/static/img/chatgpt_img.png'
+        'Spotify': spotify_img,
+        'Disney Estandar': disney_estandar,
+        'Hbo Max': hbo_img
     };
-    console.log("From image dictionary:", img['Netflix']);
+    //console.log("From image dictionary:", img['Netflix']);
 
     // Safety check for services
-    const PAYLOAD_URL = data.payloadServer;
+    //const PAYLOAD_URL = data.payloadServer;
     let services  = data.collection?.docs ?? [];    // Services collection
     let { user } = data;    // user session
 
@@ -50,10 +62,9 @@
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-4 sm:px-10 md:px-20 py-10">
         {#each services as service} 
-            {console.log(service.service)}
             <ServiceCard  
                 userBalance={userBalance ?? 0} 
-                img={getImg(img[service.service] ?? '')}
+                img={img[service.service] ?? ''}
                 name={service.service} 
                 price={Number(service.price?.[userRole]) ?? 0}
                 userId={String(user.id)}
@@ -63,5 +74,6 @@
         {/each}
     </div>
 {:else}
+    <h1 class="text-center mt-4 font-extrabold lg:text-4xl">Feliz navidad y felices fiestas!🎉</h1>
     <WorkInProgress />
 {/if}

@@ -1,7 +1,7 @@
 <script lang="ts">
     import { page } from '$app/stores';
     import "../app.css";
-    import pplayLogo from '$lib/static/img/pplay_christmas.png';
+    import pplayLogo from '$lib/static/pplay_christmas.png';
     import { applyAction, enhance } from '$app/forms';
 
     let { children, data } = $props();
