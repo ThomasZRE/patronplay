@@ -11,7 +11,7 @@
     <form method="POST" class="max-w-3xl bg-neutral-950 p-8 m-10 rounded-2xl">
         <div class="mb-3">
             <Label for="username" class="mb-2 hover:border-sky-800!">Nombre de usuario</Label>
-            <Input name="username" type="text" id="first_name" placeholder="Daniel" required/>
+            <Input name="username" type="text" id="first_name" placeholder="Usuario" required/>
         </div>
         <div class="mb-6">
             <Label for="password" class="mb-2">Contraseña</Label>
