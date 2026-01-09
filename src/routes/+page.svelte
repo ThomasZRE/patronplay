@@ -30,7 +30,7 @@
         'ChatGPT Plus': chatgpt_img, //'../lib/static/img/chatgpt_img.png'
         'Spotify': spotify_img,
         'Disney Estandar': disney_estandar,
-        'Hbo Max': hbo_img
+        'Hbo Max PROMOCION': hbo_img
     };
     //console.log("From image dictionary:", img['Netflix']);
 
