@@ -5,13 +5,17 @@
     let date = propsDate.toLocaleString('es-CO')
 
     const myRe = /([0-9]{6})/g;
+    const myRe2 = /([0-9]{4})/g;
     const myArr = myRe.exec(props.body);
+    const myArr2 = myRe2.exec(props.body) || '';
     let codex = $state('');
     if (myArr) {
         codex = myArr[0];
     } else {
         codex = "Error processing text, please report";
     }
+
+    codex = props.from === "info@account.netflix.com" ? myArr2[0] : codex;
 
     //console.log(props);
 </script>

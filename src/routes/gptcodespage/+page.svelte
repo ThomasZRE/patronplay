@@ -16,7 +16,7 @@
         const result = await getLatest();
         
         // Filters by receiver and reduces the result
-        return result.filter((code: any) => code.to === email).slice(0,1)
+        return result.filter((code: any) => code.to === email.toLowerCase()).slice(0,1)
     }
 
 </script>
@@ -36,6 +36,7 @@
         </div>
     {:then codes: any}
         {#each codes as code} 
+            {console.log(code)}
             <CodeGpt {...code} />
         {/each}
     {:catch}
