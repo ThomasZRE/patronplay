@@ -16,7 +16,7 @@
         const result = await getLatest();
         
         // Filters by receiver and reduces the result
-        return result.filter((code: any) => code.to === email.toLowerCase()).slice(0,1)
+        return result.filter((code: any) => code.to.toLowerCase() === email.toLowerCase()).slice(0,1)
     }
 
 </script>
