@@ -16,7 +16,13 @@
         const result = await getLatest();
         
         // Filters by receiver and reduces the result
-        return result.filter((code: any) => code.to.toLowerCase() === email.toLowerCase()).slice(0,1)
+        return result.filter((code: any) => {
+            if (code.from.includes("@outlook"))
+            {
+                return code.from.toLowerCase() === email.toLowerCase()
+            }
+            return code.to.toLowerCase() === email.toLowerCase()
+        }).slice(0,1);
     }
 
 </script>
