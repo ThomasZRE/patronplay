@@ -45,7 +45,7 @@
                 <a href="/terms-and-conditions" class="text-sm font-medium transition-colors {isActive('/terms-and-conditions') ? 'text-blue-500' : 'text-zinc-400 hover:text-white'}">Términos y condiciones</a>
             </li>
             <li>
-                <a href="/gptcodespage" class="text-sm font-medium transition-colors {isActive('/gptcodespage') ? 'text-blue-500' : 'text-zinc-400 hover:text-white'}">Códigos de ChatGPT</a>
+                <a href="/netflixcodespage" class="text-sm font-medium transition-colors {isActive('/gptcodespage') ? 'text-blue-500' : 'text-zinc-400 hover:text-white'}">Códigos de Netflix</a>
             </li>
         </ul>
 
@@ -99,7 +99,8 @@
             {/if}
             <a href="/about" class="text-zinc-400 hover:text-white" onclick={() => isMenuOpen = false}>Nosotros</a>
             <a hidden href="/terms-and-conditions" class="text-zinc-400 hover:text-white" onclick={() => isMenuOpen = false}>Términos y condiciones</a>
-            <a href="/gptcodespage" class="text-zinc-400 hover:text-white" onclick={() => isMenuOpen = false}>Códigos de ChatGPT</a>
+            <!-- Legacy /gptcodespage -->
+            <a href="/netflixcodespage" class="text-zinc-400 hover:text-white" onclick={() => isMenuOpen = false}>Códigos de Netflix</a>
             {#if isMenuOpen && user}
                 <form method="POST" action="/logout">
                     <button 

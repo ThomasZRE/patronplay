@@ -29,7 +29,7 @@
 <div class="body">
 
     <div class="container ">
-        <h1>Códigos de ChatGPT</h1>
+        <h1>Códigos de Netflix</h1>
         <form onsubmit={(event) => loading = hookEmails(event)} class="email-form">
             <input bind:value={email} type="email" class="email-input" placeholder="Ingresa tu correo aqui"/>
             <button type="submit" class="submit-button">Enviar</button>
@@ -42,7 +42,6 @@
         </div>
     {:then codes: any}
         {#each codes as code} 
-            {console.log(code)}
             <CodeGpt {...code} />
         {/each}
     {:catch}
