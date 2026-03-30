@@ -12,10 +12,11 @@
         userId: string;
         serviceId: string;
         stock: number;
+        description: string;
     }
 
     // Props
-    let { img, name, price, userBalance, userId, serviceId, stock }: Props = $props();
+    let { img, name, price, userBalance, userId, serviceId, stock, description }: Props = $props();
 
     let defaultModal = $state(false);
     let isSubmitting = $state(false);
@@ -50,7 +51,8 @@
 <div class="space-y-4">
         <Card img={img} class="max-w-[200px] p-0 bg-stone-950 border-zinc-900">
             <div class="m-4">
-                <h5 class="mb-2 text-2xl font-bold tracking-tight dark:text-white">{name}</h5>
+                <h5 class="mb-2 text-4xl font-bold tracking-tight dark:text-white">{name}</h5>
+                <h6 class="mb-1 text-lg font-semibold dark:text-gray-450">{description}</h6>
                 <p class="mb-3 leading-tight font-normal dark:text-gray-400">
                     {#if isSoldOut}
                         <span class="text-red-500 font-extrabold uppercase text-sm">Agotado</span>

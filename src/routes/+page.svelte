@@ -5,38 +5,31 @@
     import ServiceCard from "$lib/components/ServiceCard.svelte";
 
     // Importing static images
-    import netflixImg from '$lib/static/img/netflix_img.png';
-    import chatgpt_img from '$lib/static/img/chatgpt_img.png';
-    import prime_img from '$lib/static/img/prime_img.png';
-    import disney_premium from '$lib/static/img/disney_premium_img.png';
-    import disney_estandar from '$lib/static/img/disney_estandar_img.png';
+    import netflixImg from '$lib/static/img/netflix_img.jpg';
+    import prime_img from '$lib/static/img/prime_img.jpg';
+    import disney_premium from '$lib/static/img/disney_premium_img.jpg';
+    import disney_estandar from '$lib/static/img/disney_estandar_img.jpg';
     import spotify_img from '$lib/static/img/spotify_img.png';
-    import hbo_img from '$lib/static/img/hbo_img.png';
+    import hbo_img from '$lib/static/img/hbo_img.jpg';
 
     import { Heading } from 'flowbite-svelte';
 
     let { data }: PageProps = $props();
 
-    const getImg = (path: string) => {
-        return new URL(path, import.meta.url).href;
-    } 
-
 
     // Image dictionary
     let img: Record<string, string> = {
-        'Netflix': netflixImg, //'../lib/static/img/netflix_img.png',
-        'Disney Premium': disney_premium, //'../lib/static/img/disney_premium_img.png',
-        'Prime Video PROMOCION': prime_img, //'../lib/static/img/prime_img.png',
-        'ChatGPT Plus': chatgpt_img, //'../lib/static/img/chatgpt_img.png'
+        'Netflix': netflixImg, 
+        'Disney Premium': disney_premium,
+        'Prime Video': prime_img,  
         'Spotify': spotify_img,
-        'Disney Estandar': disney_estandar,
-        'Hbo Max PROMOCION': hbo_img
+        'Disney Estándar': disney_estandar,
+        'Hbo Max': hbo_img
     };
 
     // Safety check for services
-    //const PAYLOAD_URL = data.payloadServer;
-    let services  = data.collection?.docs ?? [];    // Services collection
-    let { user } = data;    // user session
+    let services  = data.collection?.docs ?? [];
+    let { user } = data;
 
 
     // Derived user role, gives client if no role found
@@ -45,9 +38,6 @@
 
     // Typechecks tokens as number
     let userBalance = $state(Number(user?.tokens ?? 0));
-
-    // For loading images in server (Put in img serviceCard prop)
-    // img={service.image?.url ? `${PAYLOAD_URL.replace("api", "")}${service.image.url}` : netflixImg} 
 
 </script>
 
@@ -69,10 +59,11 @@
                 userId={String(user.id)}
                 serviceId={String(service.id)}
                 stock={Number(service.stock ?? 0)}
+                description={service.description ?? ''}
             />
         {/each}
     </div>
 {:else}
-    <h1 class="text-center mt-4 font-extrabold lg:text-4xl">Feliz navidad y felices fiestas!🎉</h1>
+    <h1 class="text-center mt-4 font-extrabold lg:text-4xl">!Hola! ¿quieres darle Play ▶️ a tu entretenimiento?</h1>
     <WorkInProgress />
 {/if}
