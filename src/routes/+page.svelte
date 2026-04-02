@@ -11,6 +11,10 @@
     import disney_estandar from '$lib/static/img/disney_estandar_img.jpg';
     import spotify_img from '$lib/static/img/spotify_img.png';
     import hbo_img from '$lib/static/img/hbo_img.jpg';
+    import vix_img from '$lib/static/img/vix_img.jpeg';
+    import paramount_img from '$lib/static/img/paramount_img.jpeg';
+    import crunchyroll_img from '$lib/static/img/crunchyroll_img.jpeg';
+
 
     import { Heading } from 'flowbite-svelte';
 
@@ -24,7 +28,10 @@
         'Prime Video': prime_img,  
         'Spotify': spotify_img,
         'Disney Estándar': disney_estandar,
-        'Hbo Max': hbo_img
+        'Hbo Max': hbo_img,
+        'Vix': vix_img,
+        'Paramount': paramount_img,
+        'Crunchyroll': crunchyroll_img
     };
 
     // Safety check for services
