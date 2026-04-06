@@ -1,7 +1,7 @@
 <script lang="ts">
     import { page } from '$app/stores';
     import "../app.css";
-    import pplayLogo from '$lib/static/pplay_santo.png';
+    import pplayLogo from '$lib/static/pplay.png';
     import { enhance } from '$app/forms';
 
 
@@ -25,7 +25,7 @@
     <div class="mx-auto flex max-w-7xl items-center justify-between">
         
         <a href="/" class="flex items-center gap-3">
-            <img src="{pplayLogo}" width="40" class="rounded-lg" alt="Patrón Play logo" />
+            <img src="{pplayLogo}" width="60" class="rounded-lg" alt="Patrón Play logo" />
             <span class="text-xl font-bold text-white xs:block">Beta</span>
         </a>
 

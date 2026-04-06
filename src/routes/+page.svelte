@@ -5,12 +5,12 @@
     import ServiceCard from "$lib/components/ServiceCard.svelte";
 
     // Importing static images
-    import netflixImg from '$lib/static/img/netflix_img.jpg';
-    import prime_img from '$lib/static/img/prime_img.jpg';
-    import disney_premium from '$lib/static/img/disney_premium_img.jpg';
-    import disney_estandar from '$lib/static/img/disney_estandar_img.jpg';
+    import netflixImg from '$lib/static/img/netflix_img.jpeg';
+    import prime_img from '$lib/static/img/prime_img.jpeg';
+    import disney_premium from '$lib/static/img/disney_premium_img.jpeg';
+    import disney_estandar from '$lib/static/img/disney_estandar_img.jpeg';
     import spotify_img from '$lib/static/img/spotify_img.png';
-    import hbo_img from '$lib/static/img/hbo_img.jpg';
+    import hbo_img from '$lib/static/img/hbo_img.jpeg';
     import vix_img from '$lib/static/img/vix_img.jpeg';
     import paramount_img from '$lib/static/img/paramount_img.jpeg';
     import crunchyroll_img from '$lib/static/img/crunchyroll_img.jpeg';
