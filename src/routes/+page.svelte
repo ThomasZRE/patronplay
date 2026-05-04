@@ -14,6 +14,7 @@
     import vix_img from '$lib/static/img/vix_img.jpeg';
     import paramount_img from '$lib/static/img/paramount_img.jpeg';
     import crunchyroll_img from '$lib/static/img/crunchyroll_img.jpeg';
+    import chatgpt_img from '$lib/static/img/chatgpt_img.png';
 
 
     import { Heading } from 'flowbite-svelte';
@@ -31,7 +32,8 @@
         'Hbo Max': hbo_img,
         'Vix': vix_img,
         'Paramount': paramount_img,
-        'Crunchyroll': crunchyroll_img
+        'Crunchyroll': crunchyroll_img,
+        'ChatGPT Plus': chatgpt_img,
     };
 
     // Safety check for services
