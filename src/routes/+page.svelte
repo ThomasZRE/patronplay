@@ -5,7 +5,7 @@
     import ServiceCard from "$lib/components/ServiceCard.svelte";
 
     // Importing static images
-    import netflixImg from '$lib/static/img/netflix_img.jpeg';
+    import netflixImg from '$lib/static/img/netflix_wc.jpeg';
     import prime_img from '$lib/static/img/prime_img.jpeg';
     import disney_premium from '$lib/static/img/disney_premium_img.jpeg';
     import disney_estandar from '$lib/static/img/disney_estandar_img.jpeg';
@@ -15,6 +15,7 @@
     import paramount_img from '$lib/static/img/paramount_img.jpeg';
     import crunchyroll_img from '$lib/static/img/crunchyroll_img.jpeg';
     import chatgpt_img from '$lib/static/img/chatgpt_img.png';
+    import dgo_img from '$lib/static/img/dgo_wc.jpeg';
 
 
     import { Heading } from 'flowbite-svelte';
@@ -34,6 +35,7 @@
         'Paramount': paramount_img,
         'Crunchyroll': crunchyroll_img,
         'ChatGPT Plus': chatgpt_img,
+        'Dgo': dgo_img
     };
 
     // Safety check for services
