@@ -6,14 +6,14 @@
 
     // Importing static images
     import netflixImg from '$lib/static/img/netflix_wc.jpeg';
-    import prime_img from '$lib/static/img/prime_img.jpeg';
-    import disney_premium from '$lib/static/img/disney_premium_img.jpeg';
-    import disney_estandar from '$lib/static/img/disney_estandar_img.jpeg';
+    import prime_img from '$lib/static/img/prime_wc.jpeg';
+    import disney_premium from '$lib/static/img/disney_premium_wc.jpeg';
+    import disney_estandar from '$lib/static/img/disney_estandar_wc.jpeg';
     import spotify_img from '$lib/static/img/spotify_img.png';
-    import hbo_img from '$lib/static/img/hbo_img.jpeg';
-    import vix_img from '$lib/static/img/vix_img.jpeg';
-    import paramount_img from '$lib/static/img/paramount_img.jpeg';
-    import crunchyroll_img from '$lib/static/img/crunchyroll_img.jpeg';
+    import hbo_img from '$lib/static/img/hbo_wc.jpeg';
+    import vix_img from '$lib/static/img/vix_wc.jpeg';
+    import paramount_img from '$lib/static/img/paramount_wc.jpeg';
+    import crunchyroll_img from '$lib/static/img/crunchyroll_wc.jpeg';
     import chatgpt_img from '$lib/static/img/chatgpt_img.png';
     import dgo_img from '$lib/static/img/dgo_wc.jpeg';
 
