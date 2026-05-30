@@ -35,7 +35,7 @@
         'Paramount': paramount_img,
         'Crunchyroll': crunchyroll_img,
         'ChatGPT Plus': chatgpt_img,
-        'Dgo': dgo_img
+        'DIRECTV GO': dgo_img
     };
 
     // Safety check for services
