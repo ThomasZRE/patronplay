@@ -14,7 +14,7 @@
     import vix_img from '$lib/static/img/vix_wc.jpeg';
     import paramount_img from '$lib/static/img/paramount_wc.jpeg';
     import crunchyroll_img from '$lib/static/img/crunchyroll_wc.jpeg';
-    import chatgpt_img from '$lib/static/img/chatgpt_img.png';
+    import chatgpt_img from '$lib/static/img/chatgpt_wc.jpg';
     import dgo_img from '$lib/static/img/dgo_wc.jpeg';
 
 
