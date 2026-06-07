@@ -4,7 +4,7 @@
     let propsDate = new Date(props.date)
     let date = propsDate.toLocaleString('es-CO')
 
-    const myRe = /\\n([0-9]{4})\\n/g;
+    const myRe = / ([0-9]{6}) /g;
     // Legacy
     //const myRe2 = /\\n([0-9]{4})\\n/g;
     const myArr = myRe.exec(props.body) || '';
