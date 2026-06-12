@@ -12,7 +12,7 @@
     import spotify_img from '$lib/static/img/spotify_img.png';
     import hbo_img from '$lib/static/img/hbo_wc.jpeg';
     import vix_img from '$lib/static/img/vix_wc.jpeg';
-    import paramount_img from '$lib/static/img/paramount_wc.jpeg';
+    import paramount_img from '$lib/static/img/paramount_wc1.jpg';
     import crunchyroll_img from '$lib/static/img/crunchyroll_wc.jpeg';
     import chatgpt_img from '$lib/static/img/chatgpt_wc.jpg';
     import dgo_img from '$lib/static/img/dgo_wc.jpeg';
