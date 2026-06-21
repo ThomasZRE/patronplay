@@ -6,19 +6,23 @@
 
     const myRe = / ([0-9]{6}) /g;
     // Legacy
-    //const myRe2 = /\\n([0-9]{4})\\n/g;
+    const myRe2 = /\\n([0-9]{6}) /g;
+
     const myArr = myRe.exec(props.body) || '';
     
     // Legacy
     // myRe.exec(props.body);
-    // const myArr2 = myRe2.exec(props.body) || '';
+    const myArr2 = myRe2.exec(props.body) || '';
 
     console.log("Arr:", myArr);
 
     let codex = $state('');
     if (myArr) {
         codex = myArr[1];
-    } else {
+    } else if (myArr2) {
+	codex = myArr2[1];
+    }
+    else {
         codex = "Error processing text, please report";
     }
 
