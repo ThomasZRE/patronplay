@@ -16,7 +16,7 @@
     import crunchyroll_img from '$lib/static/img/crunchyroll_wc.jpeg';
     import chatgpt_img from '$lib/static/img/chatgpt_wc.jpg';
     import dgo_img from '$lib/static/img/dgo_wc.jpeg';
-    import capcut_img from '$lib/static/img/capcut_pro.jpeg'
+    import capcut_img from '$lib/static/img/capcut_pro.jpg'
 
     import { Heading } from 'flowbite-svelte';
 
