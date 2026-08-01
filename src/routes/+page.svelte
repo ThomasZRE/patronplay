@@ -16,7 +16,7 @@
     import crunchyroll_img from '$lib/static/img/crunchyroll_wc.jpeg';
     import chatgpt_img from '$lib/static/img/chatgpt_wc.jpg';
     import dgo_img from '$lib/static/img/dgo_wc.jpeg';
-
+    import capcut_img from '$lib/static/img/capcut_pro.jpeg'
 
     import { Heading } from 'flowbite-svelte';
 
@@ -35,7 +35,8 @@
         'Paramount': paramount_img,
         'Crunchyroll': crunchyroll_img,
         'ChatGPT Plus': chatgpt_img,
-        'DIRECTV GO': dgo_img
+        'DIRECTV GO': dgo_img,
+        'Capcut Pro': capcut_img
     };
 
     // Safety check for services
