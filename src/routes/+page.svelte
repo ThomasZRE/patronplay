@@ -41,6 +41,8 @@
 
     // Safety check for services
     let services  = data.collection?.docs ?? [];
+    services = services.filter(service => service?.service !== 'DIRECTV GO');
+
     let { user } = data;
 
 
