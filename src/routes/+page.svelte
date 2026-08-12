@@ -5,16 +5,16 @@
     import ServiceCard from "$lib/components/ServiceCard.svelte";
 
     // Importing static images
-    import netflixImg from '$lib/static/img/netflix_wc.jpeg';
-    import prime_img from '$lib/static/img/prime_wc.jpeg';
-    import disney_premium from '$lib/static/img/disney_premium_wc.jpeg';
-    import disney_estandar from '$lib/static/img/disney_estandar_wc.jpeg';
+    import netflixImg from '$lib/static/img/netflix_img.jpeg';
+    import prime_img from '$lib/static/img/prime_img.jpeg';
+    import disney_premium from '$lib/static/img/disney_premium_img.jpeg';
+    import disney_estandar from '$lib/static/img/disney_estandar_img.jpeg';
     import spotify_img from '$lib/static/img/spotify_img.png';
-    import hbo_img from '$lib/static/img/hbo_wc.jpeg';
-    import vix_img from '$lib/static/img/vix_wc.jpeg';
-    import paramount_img from '$lib/static/img/paramount_wc1.jpg';
-    import crunchyroll_img from '$lib/static/img/crunchyroll_wc.jpeg';
-    import chatgpt_img from '$lib/static/img/chatgpt_wc.jpg';
+    import hbo_img from '$lib/static/img/hbo_img.jpeg';
+    import vix_img from '$lib/static/img/vix_img.jpeg';
+    import paramount_img from '$lib/static/img/paramount_img.jpg';
+    import crunchyroll_img from '$lib/static/img/crunchyroll_img.jpeg';
+    import chatgpt_img from '$lib/static/img/chatgpt_img.png';
     import dgo_img from '$lib/static/img/dgo_wc.jpeg';
     import capcut_img from '$lib/static/img/capcut_pro.jpg'
 
