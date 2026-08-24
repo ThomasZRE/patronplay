@@ -74,9 +74,9 @@
 
   // Categoría activa (duo, tridente, combo)
   let activeTier = $derived.by(() => {
-    if (count <= 2) return PRICING.duos; 
     if (count === 3) return PRICING.tridentes;
-    if (count > 3) return PRICING.combos;
+    else if (count > 3) return PRICING.combos;
+    else return PRICING.duos;
   });
 
 
@@ -88,18 +88,18 @@
   });
 
   const totalPrice = $derived.by(() => {
-    if (count < 2) return 0;
+    if (count < 1) return 0;
 
-    return validSelections.reduce((sum, key) => sum + (activeTier?.key || 0), 0);
+    return validSelections.reduce((sum, key) => sum + (activeTier[key] || 0), 0);    
+  });
 
+  // $effect(() => {
+  //   console.log('Selected keys changed:', selectedKeys);
+  //   console.log('Valid selections:', validSelections);
+  //   console.log('Current active tier:', activeTier);
+  //   console.log(totalPrice);
     
-  });
-
-  $effect(() => {
-    console.log('Selected keys changed:', selectedKeys);
-    console.log('Valid selections:', validSelections);
-    console.log('Current active tier:', activeTier);
-  });
+  // });
 
 </script>
 
@@ -206,20 +206,20 @@
         {:else}
           {#each validSelections as key}
             {@const item = platforms.find((p) => p.key === key)}
-            {@const itemPrice = PRICING.activeTier?.key || 0}
+            {@const itemPrice = activeTier[key] || 0 }
             <div class="flex items-center justify-between text-sm py-1">
               <span class="text-slate-300 font-medium">{item?.label || key}</span>
               <span class="text-xs text-slate-400">1 Pantalla</span>
-              <span class="text-small text-slate-500">{formatCOP(itemPrice)}</span>
-              <!--{#if itemPrice !== 0}
-                
-              {/if} --->
+              {#if itemPrice !== 0}
+                <span class="text-small text-slate-500">{formatCOP(itemPrice)}</span>
+              {/if}
             </div>
           {/each}
         {/if}
       </div>
 
-      <div class="space-y-1">
+      <!-- NO SE USARA POR AHORA (hidden)-->
+      <div class="space-y-1" hidden>
         <div class="flex items-baseline justify-between">
           <span class="text-xs uppercase tracking-wider text-slate-400 font-semibold">Total a pagar</span>
           <span class="text-2xl font-black text-indigo-400">
