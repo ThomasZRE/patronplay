@@ -3,6 +3,6 @@
 
 </script>
 
-<main class="min-h-screen w-full flex items-center justify-center p-4 sm:p-6">
+<main class="min-h-screen text-slate-100 flex items-center justify-center p-4 sm:p-6 lg:p-8">
     <PriceCalculator />
 </main>
