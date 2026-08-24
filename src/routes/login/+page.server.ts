@@ -1,7 +1,7 @@
 import type { PageServerLoad } from './$types';
 import { PayloadSDK } from '@payloadcms/sdk';
 import { PAYLOAD_SERVER } from '$env/static/private';
-import { redirect, type Actions } from '@sveltejs/kit';
+import { redirect, fail, type Actions } from '@sveltejs/kit';
 import { getSession } from '$lib/server/getSession';
 
 const payload = new PayloadSDK({
@@ -25,45 +25,57 @@ export const actions = {
         const data = await request.formData();
         const username = data.get('username');
         const password = data.get('password');
-        
-        const user = await payload.find({
-            collection: 'users',
-            where: {
-                username: {
-                    equals: username
-                }
-            }
-        })
 
-        // Check if user exists
-        if (user.docs.length === 0) {
-            console.log("User", username, "does not exist");
-            return { success: false, error: 'User does not exist' };
+        if (!username || !password) {
+            return fail(400, 
+                { 
+                    success: false, 
+                    error: 'Username and password are required' 
+                });
         }
-
+        
         try {
             const result = await payload.login({
                 collection: 'users',
-                data: {
-                    username: username as string,
-                    password: password as string, 
-                }
+                data:
+                    {
+                        username: String(username),
+                        password: String(password),
+                    }, 
             });
         
-            if (result.token) {    
+            if (result?.token) {    
                 cookies.set('sessionid', result.token, { 
                     path: '/',
                     httpOnly: true,
                     sameSite: 'lax',
                     secure: process.env.NODE_ENV === 'production',
                 });
-                return { success: true }
-            } else {
-                return { success: false, error: 'Invalid Email or Password' }
-            }
-        } catch (e) {
+
+                // Redirects if successful login
+                redirect(303, '/');
+            } 
+
+            return fail(400, 
+                {
+                    success: false,
+                    error: 'Invalid credentials'
+                }
+            );
+
+        } catch (e: any) {
+            // Case of a sveltekit redirect
+            if (e?.status === 303 || e?.status === 302) throw e;
+
             console.log("Login error:", e);
-            return { success: false, error: e };
+
+            // Makes error string serializable
+            return fail(400, 
+                {
+                    success: false,
+                    error: e?.message || 'Login failed. Please check your credentials',
+                }
+            );
         }
     }
 } satisfies Actions;
