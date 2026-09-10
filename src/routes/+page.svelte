@@ -15,7 +15,7 @@
     import paramount_img from '$lib/static/img/paramount_img.jpeg';
     import crunchyroll_img from '$lib/static/img/crunchyroll_img.jpeg';
     import chatgpt_img from '$lib/static/img/chatgpt_img.png';
-    import dgo_img from '$lib/static/img/dgo_wc.jpeg';
+    import dgo_img from '$lib/static/img/dgo.png';
     import capcut_img from '$lib/static/img/capcut_pro.jpg'
 
     import { Heading } from 'flowbite-svelte';
@@ -41,7 +41,7 @@
 
     // Safety check for services
     let services  = data.collection?.docs ?? [];
-    services = services.filter(service => service?.service !== 'DIRECTV GO');
+    //services = services.filter(service => service?.service !== 'DIRECTV GO');
 
     let { user } = data;
 
