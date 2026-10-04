@@ -74,6 +74,7 @@
                 serviceId={String(service.id)}
                 stock={Number(service.stock ?? 0)}
                 description={service.description ?? ''}
+                visiting={false}
             />
         {/each}
     </div>

@@ -13,10 +13,11 @@
         serviceId: string;
         stock: number;
         description: string;
+        visiting: boolean;
     }
 
     // Props
-    let { img, name, price, userBalance, userId, serviceId, stock, description }: Props = $props();
+    let { img, name, price, userBalance, userId, serviceId, stock, description, visiting }: Props = $props();
 
     let defaultModal = $state(false);
     let isSubmitting = $state(false);
@@ -61,6 +62,7 @@
                     {/if}
                 </p>
                 
+                {#if !visiting}
                 <Button 
                     onclick={isSoldOut ? null : openModal} 
                     disabled={isLocked}
@@ -72,6 +74,9 @@
                         Compra ahora <ArrowRightOutline class="ms-2 h-6 w-6 text-white"/>
                     {/if}
                 </Button>
+                {:else}
+                    <a href="https://wa.link/o2dzdr"><Button class="bg-green-600">Registrarse ahora</Button></a>
+                {/if}
             </div>
         </Card>
         {#if !isSoldOut}

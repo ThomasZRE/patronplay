@@ -1,0 +1,83 @@
+<script lang='ts'>
+    import "../../app.css";
+	import type { PageProps } from '../$types';
+	//import WorkInProgress from './WorkInProgress.svelte';
+    import ServiceCard from "$lib/components/ServiceCard.svelte";
+
+    // Importing static images
+    import netflixImg from '$lib/static/img/netflix_img.jpeg';
+    import prime_img from '$lib/static/img/prime_img.jpeg';
+    import disney_premium from '$lib/static/img/disney_premium_img.jpeg';
+    import disney_estandar from '$lib/static/img/disney_estandar_img.jpeg';
+    import spotify_img from '$lib/static/img/spotify_img.png';
+    import hbo_img from '$lib/static/img/hbo_img.jpeg';
+    import vix_img from '$lib/static/img/vix_img.jpeg';
+    import paramount_img from '$lib/static/img/paramount_img.jpeg';
+    import crunchyroll_img from '$lib/static/img/crunchyroll_img.jpeg';
+    import chatgpt_img from '$lib/static/img/chatgpt_img.png';
+    import dgo_img from '$lib/static/img/dgo.png';
+    import capcut_img from '$lib/static/img/capcut_pro.jpg'
+
+    import { Heading } from 'flowbite-svelte';
+
+    let { data }: PageProps = $props();
+
+
+    // Image dictionary
+    let img: Record<string, string> = {
+        'Netflix': netflixImg, 
+        'Disney Premium': disney_premium,
+        'Prime Video': prime_img,  
+        'Spotify': spotify_img,
+        'Disney Estándar': disney_estandar,
+        'Hbo Max': hbo_img,
+        'Vix': vix_img,
+        'Paramount': paramount_img,
+        'Crunchyroll': crunchyroll_img,
+        'ChatGPT Plus': chatgpt_img,
+        'DIRECTV GO': dgo_img,
+        'Capcut Pro': capcut_img
+    };
+
+    // Safety check for services
+    let services  = data.collection?.docs ?? [];
+    //services = services.filter(service => service?.service !== 'DIRECTV GO');
+
+    let { user } = data;
+
+
+    // Derived user role, gives client if no role found
+    let userRole: 'client' | 'distributor' = 
+        user?.roles?.includes('distributor') ? 'distributor' : 'client';
+
+    // Typechecks tokens as number
+    let userBalance = (Number(user?.tokens ?? 0));
+
+    const visiting = user ? false : true;
+
+    $inspect(data);
+    console.log(data);
+
+</script>
+
+
+<div class="text-center mt-4">
+    <Heading tag="h1" class="mb-4 text-4xl font-extrabold lg:text-6xl text-white!">Servicios de Streaming</Heading>
+    <p class="mb-6 text-lg lg:text-xl text-gray-300!">Donde encuentras las mejores cuentas. Entrega inmediata</p>
+</div>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-4 sm:px-10 md:px-20 py-10">
+    {#each services as service} 
+        <ServiceCard  
+            userBalance={userBalance ?? 0} 
+            img={img[service.service as keyof typeof img] ?? ''}
+            name={service.service} 
+            price={Number(service.price?.[userRole]) ?? 0}
+            userId={String(user.id) || null}
+            serviceId={String(service.id)}
+            stock={Number(service.stock ?? 0)}
+            description={service.description ?? ''}
+            visiting={visiting}
+        />
+    {/each}
+</div>
