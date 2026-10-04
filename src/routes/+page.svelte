@@ -28,7 +28,7 @@
     import canva_img from '$lib/static/img/canva_hw.jpeg';
     import apple_img from '$lib/static/img/appletv_hw.jpeg';
 
-    
+
     import { Heading } from 'flowbite-svelte';
 
     let { data }: PageProps = $props();
@@ -60,6 +60,15 @@
         'Canva Pro': canva_img,
         'Apple TV': apple_img
     };
+
+    const por_chat = [
+        'Canva Pro',
+        'Gemini Pro',
+        'Youtube Premium',
+        'Edye',
+        'IPTV',
+        'DIRECTV GO'
+     ]
 
     // Safety check for services
     let services  = data.collection?.docs ?? [];
@@ -97,6 +106,7 @@
                 stock={Number(service.stock ?? 0)}
                 description={service.description ?? ''}
                 visiting={false}
+                por_chat={por_chat.includes(service.service)}
             />
         {/each}
     </div>

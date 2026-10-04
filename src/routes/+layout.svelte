@@ -1,7 +1,7 @@
 <script lang="ts">
     import { page } from '$app/stores';
     import "../app.css";
-    import pplayLogo from '$lib/static/pplay.png';
+    import pplayLogo from '$lib/static/pplay_hw.png';
     import { enhance } from '$app/forms';
 
 

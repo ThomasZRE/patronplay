@@ -1,8 +1,8 @@
 import type { PageServerLoad } from './$types';
 import { PayloadSDK } from '@payloadcms/sdk';
 import { PAYLOAD_SERVER } from '$env/static/private';
-//import { redirect } from '@sveltejs/kit';
-//import { getSession } from '$lib/server/getSession';
+import { getSession } from '$lib/server/getSession';
+import { redirect } from '@sveltejs/kit';
 
 const payload = new PayloadSDK({
     baseURL: PAYLOAD_SERVER || '',
@@ -11,6 +11,12 @@ const payload = new PayloadSDK({
 const SERVICES_FETCH_LIMIT = 20;
 
 export const load = (async({ cookies }) => { 
+    const user = await getSession(cookies);
+    
+    // Check if there's any session 
+    if (user) {
+        redirect(302, '/');
+    }
 
     return {
         payloadServer: PAYLOAD_SERVER,

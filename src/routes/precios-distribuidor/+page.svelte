@@ -100,7 +100,7 @@
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-4 sm:px-10 md:px-20 py-10">
     {#each services as service} 
         <ServiceCard  
-            userBalance={userBalance ?? 0} 
+            userBalance={userBalance ?? NaN} 
             img={img[service.service as keyof typeof img] ?? ''}
             name={service.service} 
             price={Number(service.price?.[userRole]) ?? 0}
@@ -109,7 +109,7 @@
             stock={Number(service.stock ?? 0)}
             description={service.description ?? ''}
             visiting={visiting}
-            //por_chat={service.service in por_chat}
+            por_chat={service.service in por_chat}
         />
     {/each}
 </div>

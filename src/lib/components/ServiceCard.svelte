@@ -14,7 +14,7 @@
         stock: number;
         description: string;
         visiting: boolean;
-        //por_chat: boolean
+        por_chat: boolean
     }
 
     // Props
@@ -28,7 +28,7 @@
         stock, 
         description, 
         visiting, 
-        //por_chat 
+        por_chat 
     }: Props = $props();
 
     let defaultModal = $state(false);
@@ -59,6 +59,8 @@
         };
     };
 
+    const chat_url = `https://api.whatsapp.com/send?phone=573217336649&text=%C2%A1Hola!%20me%20gustar%C3%ADa%20adquirir%20${name}`
+
 </script>
 
 <div class="space-y-4">
@@ -71,18 +73,30 @@
                     ${formatCurrency(price)}
                 </p>
                 
-                {#if !visiting}
-                <Button 
-                    onclick={isSoldOut ? null : openModal} 
-                    disabled={isLocked}
-                    class="w-40 {isSoldOut ? 'bg-gray-800': 'bg-green-600'}"
-                >
+                {#if !visiting}     
+                    <!-- Usuario loggeado -->
                     {#if isSoldOut}
-                        Agotado
+                        <Button 
+                            onclick={null} 
+                            disabled={isLocked}
+                            class="w-40 {isSoldOut ? 'bg-gray-800': 'bg-green-600'}"
+                        >
+                            <span class="text-red-500 font-extrabold uppercase text-sm">Agotado</span>                            
+                        </Button>
                     {:else}
-                        Compra ahora <ArrowRightOutline class="ms-2 h-6 w-6 text-white"/>
+                        {#if por_chat}
+                            <a href={chat_url}><Button class="w-40 bg-green-600">Ir a whatsapp <ArrowRightOutline class="ms-2 h-6 w-6 text-white"/></Button></a>
+                        
+                        {:else}
+                        <Button 
+                            onclick={openModal} 
+                            disabled={isLocked}
+                            class="w-40 {isSoldOut ? 'bg-gray-800': 'bg-green-600'}"
+                        >
+                            Compra ahora <ArrowRightOutline class="ms-2 h-6 w-6 text-white"/>   
+                        </Button>
+                        {/if}
                     {/if}
-                </Button>
                 {:else}
                     <a href="https://wa.link/o2dzdr"><Button class="bg-green-600">Registrarse ahora</Button></a>
                 {/if}
