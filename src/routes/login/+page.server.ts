@@ -20,7 +20,7 @@ export const load = (async ({ cookies }) => {
 }) satisfies PageServerLoad;
 
 export const actions = {
-    default: async ({ cookies, request, url }) => {
+    default: async ({ cookies, request }) => { //, url }) => {
         // Get data from form
         const data = await request.formData();
         const username = data.get('username');
@@ -49,9 +49,8 @@ export const actions = {
                     path: '/',
                     httpOnly: true,
                     sameSite: 'lax',
-                    // TODO: remover url en parámetro y aqui antes de desplegar
-                    secure: url.protocol === 'https',
-                    //secure: process.env.NODE_ENV === 'production',
+                    //secure: url.protocol === 'https',
+                    secure: process.env.NODE_ENV === 'production',
                 });
 
                 // Redirects if successful login
