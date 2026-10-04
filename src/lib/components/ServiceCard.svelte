@@ -14,10 +14,22 @@
         stock: number;
         description: string;
         visiting: boolean;
+        //por_chat: boolean
     }
 
     // Props
-    let { img, name, price, userBalance, userId, serviceId, stock, description, visiting }: Props = $props();
+    let { 
+        img, 
+        name, 
+        price, 
+        userBalance, 
+        userId, 
+        serviceId, 
+        stock, 
+        description, 
+        visiting, 
+        //por_chat 
+    }: Props = $props();
 
     let defaultModal = $state(false);
     let isSubmitting = $state(false);

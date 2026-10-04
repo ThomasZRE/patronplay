@@ -5,19 +5,30 @@
     import ServiceCard from "$lib/components/ServiceCard.svelte";
 
     // Importing static images
-    import netflixImg from '$lib/static/img/netflix_img.jpeg';
-    import prime_img from '$lib/static/img/prime_img.jpeg';
-    import disney_premium from '$lib/static/img/disney_premium_img.jpeg';
-    import disney_estandar from '$lib/static/img/disney_estandar_img.jpeg';
-    import spotify_img from '$lib/static/img/spotify_img.png';
-    import hbo_img from '$lib/static/img/hbo_img.jpeg';
-    import vix_img from '$lib/static/img/vix_img.jpeg';
-    import paramount_img from '$lib/static/img/paramount_img.jpeg';
-    import crunchyroll_img from '$lib/static/img/crunchyroll_img.jpeg';
-    import chatgpt_img from '$lib/static/img/chatgpt_img.png';
-    import dgo_img from '$lib/static/img/dgo.png';
-    import capcut_img from '$lib/static/img/capcut_pro.jpg'
+    import netflixImg from '$lib/static/img/netflix_hw.jpeg';
+    import prime_img from '$lib/static/img/primevideo_hw.jpeg';
+    import disney_premium from '$lib/static/img/disney_premium_hw.jpeg';
+    import disney_estandar from '$lib/static/img/disney_estandar_hw.jpeg';
+    import spotify_img from '$lib/static/img/spotify_hw.jpeg';
+    import hbo_img from '$lib/static/img/hbomax_hw.jpeg';
+    import vix_img from '$lib/static/img/vix_hw.jpeg';
+    import paramount_img from '$lib/static/img/paramount_hw.jpeg';
+    import crunchyroll_img from '$lib/static/img/crunchyroll_hw.jpeg';
+    import chatgpt_img from '$lib/static/img/chatgpt_hw.jpeg';
+    import dgo_img from '$lib/static/img/dgo_hw.jpeg';
+    import capcut_img from '$lib/static/img/capcut_hw.jpeg';
+    import youtube_img from '$lib/static/img/yt_premium_hw.jpeg';
+    import viki_img from '$lib/static/img/viki_hw.jpeg';
+    import plex_img from '$lib/static/img/plex_hw.jpeg';
+    import mubi_img from '$lib/static/img/mubi_hw.jpeg';
+    import iptv_img from '$lib/static/img/iptv_hw.jpeg';
+    import gemini_img from '$lib/static/img/gem_pro_hw.jpeg'
+    import edye_img from '$lib/static/img/edye_hw.jpeg';
+    import deezer_img from '$lib/static/img/deezer_hw.jpeg';
+    import canva_img from '$lib/static/img/canva_hw.jpeg';
+    import apple_img from '$lib/static/img/appletv_hw.jpeg';
 
+    
     import { Heading } from 'flowbite-svelte';
 
     let { data }: PageProps = $props();
@@ -36,7 +47,18 @@
         'Crunchyroll': crunchyroll_img,
         'ChatGPT Plus': chatgpt_img,
         'DIRECTV GO': dgo_img,
-        'Capcut Pro': capcut_img
+        'Capcut Pro': capcut_img,
+        // Nuevas
+        'Youtube Premium': youtube_img,
+        'Viki Rakuten': viki_img,
+        'Plex': plex_img,
+        'Mubi': mubi_img,
+        'IPTV': iptv_img,
+        'Gemini Pro': gemini_img,
+        'Edye': edye_img,
+        'Deezer': deezer_img,
+        'Canva Pro': canva_img,
+        'Apple TV': apple_img
     };
 
     // Safety check for services
