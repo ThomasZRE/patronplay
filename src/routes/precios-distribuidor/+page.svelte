@@ -36,7 +36,11 @@
         'Crunchyroll': crunchyroll_img,
         'ChatGPT Plus': chatgpt_img,
         'DIRECTV GO': dgo_img,
-        'Capcut Pro': capcut_img
+        'Capcut Pro': capcut_img,
+
+        /*
+        
+        */
     };
 
     // Safety check for services

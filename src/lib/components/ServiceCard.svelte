@@ -23,8 +23,8 @@
     let isSubmitting = $state(false);
 
     let isSoldOut = $derived(stock <= 0);
-    let isLocked = $derived(isSoldOut || Number(userBalance) < Number(price) || isSubmitting);
-
+    let isLocked = $derived(isSoldOut || userBalance < price || isSubmitting);  
+    
     const formatCurrency = (val: number) => val.toLocaleString('es-CO');
 
     function openModal() {
@@ -55,11 +55,8 @@
                 <h5 class="mb-2 text-4xl font-bold tracking-tight dark:text-white">{name}</h5>
                 <h6 class="mb-1 text-lg font-semibold dark:text-gray-450">{description}</h6>
                 <p class="mb-3 leading-tight font-normal dark:text-gray-400">
-                    {#if isSoldOut}
-                        <span class="text-red-500 font-extrabold uppercase text-sm">Agotado</span>
-                    {:else}
-                        ${formatCurrency(price)}
-                    {/if}
+                        <!-- <span class="text-red-500 font-extrabold uppercase text-sm">Agotado</span> -->
+                    ${formatCurrency(price)}
                 </p>
                 
                 {#if !visiting}
