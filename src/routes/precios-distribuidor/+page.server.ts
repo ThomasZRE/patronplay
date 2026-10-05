@@ -8,7 +8,7 @@ const payload = new PayloadSDK({
     baseURL: PAYLOAD_SERVER || '',
 })
 
-const SERVICES_FETCH_LIMIT = 20;
+const SERVICES_FETCH_LIMIT = 30;
 
 export const load = (async({ cookies }) => { 
     const user = await getSession(cookies);
