@@ -16,7 +16,8 @@ export const load = (async({ cookies }) => {
         collection: await payload.find({
             collection: 'services',
             depth: 1,
-            limit: SERVICES_FETCH_LIMIT
+            limit: SERVICES_FETCH_LIMIT,
+            sort: 'createdAt'
         })
     }
 }) satisfies PageServerLoad;
