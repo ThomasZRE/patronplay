@@ -67,7 +67,9 @@
         'Youtube Premium',
         'Edye',
         'IPTV',
-        'DIRECTV GO'
+        'DIRECTV GO',
+        'Deezer',
+        'Plex'
      ]
 
     // Safety check for services

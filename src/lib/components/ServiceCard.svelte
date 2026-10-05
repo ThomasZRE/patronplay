@@ -86,7 +86,6 @@
                     {:else}
                         {#if por_chat}
                             <a href={chat_url}><Button class="w-40 bg-green-600">Ir a whatsapp <ArrowRightOutline class="ms-2 h-6 w-6 text-white"/></Button></a>
-                        
                         {:else}
                         <Button 
                             onclick={openModal} 
