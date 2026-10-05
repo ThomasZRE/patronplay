@@ -53,4 +53,14 @@ body {
     background-attachment: fixed;
 }
 
+@media (max-width: 640px) {
+  body {
+    background-size: cover, cover;
+    background-position: 40% 70%, 40% 70%;
+    background-repeat: no-repeat, no-repeat;
+    /* fixed no funciona bien en iOS; scroll/parallax nativo se ve mejor */
+    background-attachment: scroll;
+  }
+}
+
 
