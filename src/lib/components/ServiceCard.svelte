@@ -13,17 +13,30 @@
         serviceId: string;
         stock: number;
         description: string;
+        visiting: boolean;
+        por_chat: boolean
     }
 
     // Props
-    let { img, name, price, userBalance, userId, serviceId, stock, description }: Props = $props();
+    let { 
+        img, 
+        name, 
+        price, 
+        userBalance, 
+        userId, 
+        serviceId, 
+        stock, 
+        description, 
+        visiting, 
+        por_chat 
+    }: Props = $props();
 
     let defaultModal = $state(false);
     let isSubmitting = $state(false);
 
     let isSoldOut = $derived(stock <= 0);
-    let isLocked = $derived(isSoldOut || Number(userBalance) < Number(price) || isSubmitting);
-
+    let isLocked = $derived(isSoldOut || userBalance < price || isSubmitting);  
+    
     const formatCurrency = (val: number) => val.toLocaleString('es-CO');
 
     function openModal() {
@@ -46,6 +59,8 @@
         };
     };
 
+    const chat_url = `https://api.whatsapp.com/send?phone=573217336649&text=%C2%A1Hola!%20me%20gustar%C3%ADa%20adquirir%20${name}`
+
 </script>
 
 <div class="space-y-4">
@@ -54,24 +69,37 @@
                 <h5 class="mb-2 text-4xl font-bold tracking-tight dark:text-white">{name}</h5>
                 <h6 class="mb-1 text-lg font-semibold dark:text-gray-450">{description}</h6>
                 <p class="mb-3 leading-tight font-normal dark:text-gray-400">
-                    {#if isSoldOut}
-                        <span class="text-red-500 font-extrabold uppercase text-sm">Agotado</span>
-                    {:else}
-                        ${formatCurrency(price)}
-                    {/if}
+                        <!-- <span class="text-red-500 font-extrabold uppercase text-sm">Agotado</span> -->
+                    ${formatCurrency(price)}
                 </p>
                 
-                <Button 
-                    onclick={isSoldOut ? null : openModal} 
-                    disabled={isLocked}
-                    class="w-40 {isSoldOut ? 'bg-gray-800': 'bg-green-600'}"
-                >
+                {#if !visiting}     
+                    <!-- Usuario loggeado -->
                     {#if isSoldOut}
-                        Agotado
+                        <Button 
+                            onclick={null} 
+                            disabled={isLocked}
+                            class="w-40 {isSoldOut ? 'bg-gray-800': 'bg-green-600'}"
+                        >
+                            <span class="text-red-500 font-extrabold uppercase text-sm">Agotado</span>                            
+                        </Button>
                     {:else}
-                        Compra ahora <ArrowRightOutline class="ms-2 h-6 w-6 text-white"/>
+                        {#if por_chat}
+                            <a href={chat_url}><Button class="w-40 bg-green-600">Ir a whatsapp <ArrowRightOutline class="ms-2 h-6 w-6 text-white"/></Button></a>
+                        
+                        {:else}
+                        <Button 
+                            onclick={openModal} 
+                            disabled={isLocked}
+                            class="w-40 {isSoldOut ? 'bg-gray-800': 'bg-green-600'}"
+                        >
+                            Compra ahora <ArrowRightOutline class="ms-2 h-6 w-6 text-white"/>   
+                        </Button>
+                        {/if}
                     {/if}
-                </Button>
+                {:else}
+                    <a href="https://wa.link/o2dzdr"><Button class="bg-green-600">Registrarse ahora</Button></a>
+                {/if}
             </div>
         </Card>
         {#if !isSoldOut}

@@ -1,7 +1,7 @@
 import type { PageServerLoad } from './$types';
 import { PayloadSDK } from '@payloadcms/sdk';
 import { PAYLOAD_SERVER } from '$env/static/private';
-import { redirect, fail, type Actions } from '@sveltejs/kit';
+import { redirect, fail, type Actions, isRedirect } from '@sveltejs/kit';
 import { getSession } from '$lib/server/getSession';
 
 const payload = new PayloadSDK({
@@ -20,7 +20,7 @@ export const load = (async ({ cookies }) => {
 }) satisfies PageServerLoad;
 
 export const actions = {
-    default: async ({ cookies, request }) => {
+    default: async ({ cookies, request }) => { //, url }) => {
         // Get data from form
         const data = await request.formData();
         const username = data.get('username');
@@ -49,6 +49,7 @@ export const actions = {
                     path: '/',
                     httpOnly: true,
                     sameSite: 'lax',
+                    //secure: url.protocol === 'https',
                     secure: process.env.NODE_ENV === 'production',
                 });
 
@@ -65,8 +66,9 @@ export const actions = {
 
         } catch (e: any) {
             // Case of a sveltekit redirect
-            if (e?.status === 303 || e?.status === 302) throw e;
-
+            //if (e?.status === 303 || e?.status === 302) throw e;
+            if (isRedirect(e)) throw e;
+ 
             console.log("Login error:", e);
 
             // Makes error string serializable
