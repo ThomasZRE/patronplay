@@ -63,6 +63,7 @@
 
     const por_chat = [
         'Canva Pro',
+        'ChatGPT Plus',
         'Gemini Pro',
         'Youtube Premium',
         'Edye',
