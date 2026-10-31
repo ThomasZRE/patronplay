@@ -74,7 +74,7 @@
                     </button>
                 </form>
             {:else}
-                <a href="/login" class="rounded bg-blue-600 px-4 py-1.5 text-sm font-bold text-white hover:bg-blue-700">Ingresar</a>
+                <a href="/login" class="rounded bg-blue-600 px-4 py-1.5 text-sm font-bold text-white hover:bg-blue-900">Ingresar</a>
             {/if}
 
             <button 

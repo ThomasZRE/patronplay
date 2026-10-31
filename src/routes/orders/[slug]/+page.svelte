@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { Button, Spinner } from 'flowbite-svelte';
+    import { ClipboardCheckOutline, FileCopyOutline } from 'flowbite-svelte-icons';
     import { goto, invalidateAll } from '$app/navigation';
 	import { onMount } from 'svelte';
     import type { PageProps } from './$types';
@@ -13,6 +14,33 @@
     // America/Bogota. Never add days with the browser's local setDate().
     const purchaseDate = $derived(order?.createdAt ? new Date(order.createdAt) : null);
     const expirationDate = $derived(purchaseDate ? expirationFrom(purchaseDate) : null);
+
+    // Copy-to-clipboard feedback (cleared after 2s)
+    let copied = $state(false);
+
+    async function copyToClipboard(text: string) {
+        if (!text) return;
+        try {
+            await navigator.clipboard.writeText(text);
+            copied = true;
+            setTimeout(() => (copied = false), 2000);
+        } catch (err) {
+            console.error('Failed to copy!', err);
+        }
+    }
+
+    // Fields the clipboard button copies: service, email, password, profile, expiry.
+    const copyText = $derived(
+        [
+            order?.service?.service ? `Servicio: ${order.service.service}` : '',
+            order?.account?.email ? `Correo: ${order.account.email}` : '',
+            order?.account?.password ? `Contraseña: ${order.account.password}` : '',
+            order?.profileSlot ? `${order.profileSlot}` : '',
+            expirationDate ? `Fecha de vencimiento: ${formatDate(expirationDate)}` : '',
+        ]
+            .filter(Boolean)
+            .join('\n'),
+    );
 
     onMount(() => {
         const interval = setInterval(() => {
@@ -46,7 +74,22 @@
     {:else}
         <h1 class="text-3xl mb-6">¡Gracias por tu compra!</h1>
         <div class="bg-stone-900 p-6 rounded-lg shadow-md">
-            <h2 class="text-2xl mb-4">Información del pedido</h2>
+            <div class="flex items-center gap-3 mb-4">
+                <h2 class="text-2xl">Información del pedido</h2>
+                <button
+                    type="button"
+                    onclick={() => copyToClipboard(copyText)}
+                    class="text-gray-400 hover:text-white transition-colors"
+                    title="Copiar datos"
+                    aria-label="Copiar datos"
+                >
+                    {#if copied}
+                        <ClipboardCheckOutline class="w-4 h-4 text-green-400" />
+                    {:else}
+                        <FileCopyOutline class="w-4 h-4" />
+                    {/if}
+                </button>
+            </div>
             <p><strong>ID del pedido:</strong> {order.id}</p>
             <p><strong>Servicio:</strong> {order.service?.service}</p>
             <p><strong>Correo:</strong> {order.account?.email}</p>
