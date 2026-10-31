@@ -5,7 +5,7 @@
     import ServiceCard from "$lib/components/ServiceCard.svelte";
 
     // Importing static images
-    import netflixImg from '$lib/static/img/netflix_hw.jpeg';
+    import fbck_img from '$lib/static/img/background-popcorn.jpg';
     import prime_img from '$lib/static/img/primevideo_hw.jpeg';
     import disney_premium from '$lib/static/img/disney_premium_hw.jpeg';
     import disney_estandar from '$lib/static/img/disney_estandar_hw.jpeg';
@@ -36,7 +36,7 @@
 
     // Image dictionary
     let img: Record<string, string> = {
-        'Netflix': netflixImg, 
+        'Netflix': fbck_img, 
         'Disney Premium': disney_premium,
         'Prime Video': prime_img,  
         'Spotify': spotify_img,
@@ -79,7 +79,7 @@
 
     let { user } = data;
 
-    const FALLBACK_SERVICE_IMAGE = apple_img;
+    const FALLBACK_SERVICE_IMAGE = fbck_img;
 
     type ServiceImageRef = { url?: string | null } | string | null | undefined;
 
