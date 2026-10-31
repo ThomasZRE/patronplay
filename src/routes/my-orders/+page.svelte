@@ -3,6 +3,7 @@
 	import type { PageProps } from "../$types";
 	import { ClipboardCheckOutline, FileCopyOutline } from "flowbite-svelte-icons";
 	import { fade } from "svelte/transition";
+    import { formatDate } from "$lib/dates";
 
     interface Order {
         id: string;
@@ -31,12 +32,10 @@
     const orders = $derived(data.orders);
     const pagination = $derived(data.pagination);
 
-    function formatDate(dateString: string) {
-        return new Date(dateString).toLocaleDateString("es-CO", {
-            day: '2-digit',
-            month: 'short',
-            year: 'numeric'
-        });
+    // `formatDate` from $lib/dates already renders in America/Bogota with an
+    // explicit `timeZone`, so the day no longer depends on the viewer's clock.
+    function formatOrderDate(dateString: string) {
+        return formatDate(dateString, { month: 'short' });
     }
 
     let copiedId = $state("");
@@ -74,7 +73,7 @@
                 {#each orders as order}  
                     <TableBodyRow class="border-b border-zinc-800">
                         <TableBodyCell class="text-gray-400">
-                            {formatDate(order.createdAt)}
+                            {formatOrderDate(order.createdAt)}
                         </TableBodyCell>
                         <TableBodyCell class="font-bold text-black">
                             {order.service?.service || 'Servicio Desconocido'}

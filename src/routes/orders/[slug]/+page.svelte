@@ -3,24 +3,16 @@
     import { goto, invalidateAll } from '$app/navigation';
 	import { onMount } from 'svelte';
     import type { PageProps } from './$types';
+    import { expirationFrom, formatDate, formatDateTime } from '$lib/dates';
 	
     let { data }: PageProps = $props();
     
     const order = $derived(data.order);
     
-    // Function that adds x days to a date
-    function addDays(date: Date, days: number): Date {
-        let result = new Date(date);
-        result.setDate(result.getDate() + days);
-        return result;
-    }
-
-    function formatDate(date: Date): string {
-        const day = String(date.getDate()).padStart(2, '0');
-        const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are zero-based
-        const year = date.getFullYear();
-        return `${day}/${month}/${year}`;
-    }
+    // Purchase instant (UTC) and its expiration, computed as calendar days in
+    // America/Bogota. Never add days with the browser's local setDate().
+    const purchaseDate = $derived(order?.createdAt ? new Date(order.createdAt) : null);
+    const expirationDate = $derived(purchaseDate ? expirationFrom(purchaseDate) : null);
 
     onMount(() => {
         const interval = setInterval(() => {
@@ -61,7 +53,10 @@
             <p><strong>contraseña:</strong> {order.account?.password}</p>
             <!-- <strong>Perfil:</strong>  -->
             <p>{order.profileSlot}</p>
-            <p><strong>Fecha de creación:</strong> {new Date(order.createdAt).toLocaleDateString("es-CO")} <strong>Fecha de vencimiento:</strong> {formatDate(addDays(new Date(order.createdAt), 30))}</p> 
+            <p>
+                <strong>Fecha de creación:</strong> {purchaseDate ? formatDateTime(purchaseDate) : '-'}
+                <strong>Fecha de vencimiento:</strong> {expirationDate ? formatDate(expirationDate) : '-'}
+            </p> 
         </div>
         <Button onclick={() => goto('/')} class="mt-6 bg-sky-600 hover:bg-sky-800">Volver a la tienda</Button>
     {/if}

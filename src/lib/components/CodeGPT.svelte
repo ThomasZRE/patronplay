@@ -1,8 +1,11 @@
 <script lang="ts">
+    import { formatDateTime } from '$lib/dates';
+
     let props = $props();
 
-    let propsDate = new Date(props.date)
-    let date = propsDate.toLocaleString('es-CO')
+    // Rendered in America/Bogota explicitly, so the timestamp does not depend on
+    // whether the component runs during SSR (server zone) or in the browser.
+    let date = formatDateTime(props.date)
 
     const myRe = / ([0-9]{6}) /g;
     // Legacy
