@@ -59,7 +59,8 @@
             <p><strong>Servicio:</strong> {order.service?.service}</p>
             <p><strong>Correo:</strong> {order.account?.email}</p>
             <p><strong>contraseña:</strong> {order.account?.password}</p>
-            <p><strong>Perfil:</strong> {order.profileSlot}</p>
+            <!-- <strong>Perfil:</strong>  -->
+            <p>{order.profileSlot}</p>
             <p><strong>Fecha de creación:</strong> {new Date(order.createdAt).toLocaleDateString("es-CO")} <strong>Fecha de vencimiento:</strong> {formatDate(addDays(new Date(order.createdAt), 30))}</p> 
         </div>
         <Button onclick={() => goto('/')} class="mt-6 bg-sky-600 hover:bg-sky-800">Volver a la tienda</Button>
