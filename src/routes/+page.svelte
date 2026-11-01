@@ -5,7 +5,7 @@
     import ServiceCard from "$lib/components/ServiceCard.svelte";
 
     // Importing static images
-    import netflixImg from '$lib/static/img/netflix_hw.jpeg';
+    import fbck_img from '$lib/static/img/background-popcorn.jpg';
     import prime_img from '$lib/static/img/primevideo_hw.jpeg';
     import disney_premium from '$lib/static/img/disney_premium_hw.jpeg';
     import disney_estandar from '$lib/static/img/disney_estandar_hw.jpeg';
@@ -36,7 +36,7 @@
 
     // Image dictionary
     let img: Record<string, string> = {
-        'Netflix': netflixImg, 
+        'Netflix': fbck_img, 
         'Disney Premium': disney_premium,
         'Prime Video': prime_img,  
         'Spotify': spotify_img,
@@ -79,6 +79,33 @@
 
     let { user } = data;
 
+    const FALLBACK_SERVICE_IMAGE = fbck_img;
+
+    type ServiceImageRef = { url?: string | null } | string | null | undefined;
+
+    /**
+     * CMS image (services.image.url) when available, otherwise the bundled static
+     * image, otherwise the not-yet-defined fallback path.
+     *
+     * `data.payloadServer` is the REST base ("http://host/api") while Media.url
+     * already starts with "/api/media/file/...", so only the origin is prefixed
+     * to avoid producing "/api/api/...".
+     */
+    function resolveServiceImage(service: unknown): string {
+        const doc = (service ?? {}) as { service?: string; image?: ServiceImageRef };
+        const image = doc.image;
+
+        if (image && typeof image === 'object' && image.url) {
+            // Absolute URLs (Payload serverURL configured) are used untouched.
+            if (/^https?:\/\//.test(image.url)) return image.url;
+
+            const origin = (data.payloadServer ?? '').replace(/\/api\/?$/, '');
+            return `${origin}${image.url}`;
+        }
+
+        return /*img[doc.service ?? ''] ??*/ FALLBACK_SERVICE_IMAGE;
+    }
+
 
     // Derived user role, gives client if no role found
     let userRole: 'client' | 'distributor' = 
@@ -86,6 +113,12 @@
 
     // Typechecks tokens as number
     let userBalance = $state(Number(user?.tokens ?? 0));
+
+    // To remove later
+    const gemini_service = services.find((service) => service.service === "Gemini Pro");
+    if (gemini_service)
+        console.log(gemini_service)
+    // `http://localhost:3000${gemini_service.image.url}`
 
 </script>
 
@@ -100,8 +133,8 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-4 sm:px-10 md:px-20 py-10">
         {#each services as service} 
             <ServiceCard  
-                userBalance={userBalance ?? 0} 
-                img={img[service.service as keyof typeof img] ?? ''}
+                userBalance={userBalance ?? 0}
+                img={resolveServiceImage(service)} 
                 name={service.service} 
                 price={Number(service.price?.[userRole]) ?? 0}
                 userId={String(user.id)}

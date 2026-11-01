@@ -5,6 +5,7 @@
     import ServiceCard from "$lib/components/ServiceCard.svelte";
 
     // Importing static images
+    import fbck_img from '$lib/static/img/background-popcorn.jpg';
     import netflixImg from '$lib/static/img/netflix_hw.jpeg';
     import prime_img from '$lib/static/img/primevideo_hw.jpeg';
     import disney_premium from '$lib/static/img/disney_premium_hw.jpeg';
@@ -79,6 +80,30 @@
 
     let { user } = data;
 
+    const FALLBACK_SERVICE_IMAGE = fbck_img;
+
+    type ServiceImageRef = { url?: string | null } | string | null | undefined;
+
+    /*
+     `data.payloadServer` is the REST base ("http://host/api") while Media.url
+     already starts with "/api/media/file/...", so only the origin is prefixed
+     to avoid producing "/api/api/...".
+    */
+    function resolveServiceImage(service: unknown): string {
+        const doc = (service ?? {}) as { service?: string; image?: ServiceImageRef };
+        const image = doc.image;
+
+        if (image && typeof image === 'object' && image.url) {
+            // Absolute URLs (Payload serverURL configured) are used untouched.
+            if (/^https?:\/\//.test(image.url)) return image.url;
+
+            const origin = (data.payloadServer ?? '').replace(/\/api\/?$/, '');
+            return `${origin}${image.url}`;
+        }
+
+        return /*img[doc.service ?? ''] ??*/ FALLBACK_SERVICE_IMAGE;
+    }
+
 
     // Derived user role, gives client if no role found
     let userRole: 'client' | 'distributor' = 
@@ -89,8 +114,10 @@
 
     const visiting = user ? false : true;
 
-    $inspect(data);
-    console.log(data);
+    // dummy comment
+
+    //$inspect(data);
+    //console.log(data)
 
 </script>
 
@@ -104,7 +131,7 @@
     {#each services as service} 
         <ServiceCard  
             userBalance={userBalance ?? NaN} 
-            img={img[service.service as keyof typeof img] ?? ''}
+            img={resolveServiceImage(service)}
             name={service.service} 
             price={Number(service.price?.[userRole]) ?? 0}
             userId={String(user?.id || null)}
@@ -112,7 +139,7 @@
             stock={Number(service.stock ?? 0)}
             description={service.description ?? ''}
             visiting={visiting}
-            por_chat={service.service in por_chat}
+            por_chat={por_chat.includes(service.service)}
         />
     {/each}
 </div>
