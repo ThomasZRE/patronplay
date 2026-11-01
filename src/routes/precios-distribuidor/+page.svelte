@@ -114,8 +114,9 @@
 
     const visiting = user ? false : true;
 
+
     //$inspect(data);
-    //console.log(data);
+    //console.log(data)
 
 </script>
 
