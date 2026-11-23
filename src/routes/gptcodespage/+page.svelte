@@ -17,10 +17,10 @@
         
         // Filters by receiver and reduces the result
         return result.filter((code: any) => {
-            if (code.from.includes("@outlook"))
-            {
-                return code.from.toLowerCase() === email.toLowerCase()
-            }
+            // if (code.from.includes("@outlook"))
+            // {
+            //     return code.from.toLowerCase() === email.toLowerCase()
+            // }
             return code.to.toLowerCase() === email.toLowerCase()
         }).slice(0,1);
     }
@@ -29,7 +29,7 @@
 <div class="body">
 
     <div class="container ">
-        <h1>Códigos de Disney</h1>
+        <h1>Códigos de ChatGPT</h1>
         <form onsubmit={(event) => loading = hookEmails(event)} class="email-form">
             <input bind:value={email} type="email" class="email-input" placeholder="Ingresa tu correo aqui"/>
             <button type="submit" class="submit-button">Enviar</button>
