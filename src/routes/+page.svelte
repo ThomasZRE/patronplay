@@ -3,8 +3,7 @@
 	import type { PageProps } from './$types';
 	import WorkInProgress from './WorkInProgress.svelte';
     import ServiceCard from "$lib/components/ServiceCard.svelte";
-
-    // Importing static images
+    import { prioritizeServices } from '$lib/servicePriority';
     import fbck_img from '$lib/static/img/background-popcorn.jpg';
     import prime_img from '$lib/static/img/primevideo_hw.jpeg';
     import disney_premium from '$lib/static/img/disney_premium_hw.jpeg';
@@ -73,10 +72,6 @@
         'Plex'
      ]
 
-    // Safety check for services
-    let services  = data.collection?.docs ?? [];
-    //services = services.filter(service => service?.service !== 'DIRECTV GO');
-
     let { user } = data;
 
     const FALLBACK_SERVICE_IMAGE = fbck_img;
@@ -114,12 +109,13 @@
     // Typechecks tokens as number
     let userBalance = $state(Number(user?.tokens ?? 0));
 
-    // To remove later
-    const gemini_service = services.find((service) => service.service === "Gemini Pro");
-    if (gemini_service)
-        console.log(gemini_service)
-    // `http://localhost:3000${gemini_service.image.url}`
+    // Show these services first, in this order (matched case-insensitively)
+    const SHOW_FIRST = ['ChatGPT Plus', 'Gemini Pro', 'CapCut Pro', 'Canva Pro'];
 
+    // Prioritized copy of the CMS docs; anything not in SHOW_FIRST keeps its createdAt order
+    let services = $derived(prioritizeServices(data.collection?.docs ?? [], SHOW_FIRST));
+    
+    
 </script>
 
 
