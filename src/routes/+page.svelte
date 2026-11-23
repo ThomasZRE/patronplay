@@ -64,12 +64,13 @@
         'Canva Pro',
         'ChatGPT Plus',
         'Gemini Pro',
-        'Youtube Premium',
+        'YouTube Premium',
         'Edye',
         'IPTV',
         'DIRECTV GO',
         'Deezer',
-        'Plex'
+        'Plex',
+        'CapCut Pro'
      ]
 
     let { user } = data;
