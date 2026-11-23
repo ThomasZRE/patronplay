@@ -44,11 +44,10 @@
             <li hidden>
                 <a href="/terms-and-conditions" class="text-sm font-medium transition-colors {isActive('/terms-and-conditions') ? 'text-blue-500' : 'text-zinc-400 hover:text-white'}">Términos y condiciones</a>
             </li>
-            <!--
             <li>
-                <a href="/disneycodespage" class="text-sm font-medium transition-colors {isActive('/disneycodespage') ? 'text-blue-500' : 'text-zinc-400 hover:text-white'}">Códigos de Disney</a>
+                <a href="/gptcodespage" class="text-sm font-medium transition-colors {isActive('/gptcodespage') ? 'text-blue-500' : 'text-zinc-400 hover:text-white'}">Códigos de ChatGPT</a>
             </li>
-            -->
+            
         </ul>
 
         <div class="flex items-center gap-3">

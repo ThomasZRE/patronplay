@@ -7,7 +7,7 @@
     // whether the component runs during SSR (server zone) or in the browser.
     let date = formatDateTime(props.date)
 
-    const myRe = / ([0-9]{6}) /g;
+    const myRe = /\\n([0-9]{6})\\n/gm;
     // Legacy
     const myRe2 = /\\n([0-9]{6}) /g;
 
@@ -17,6 +17,7 @@
     // myRe.exec(props.body);
     const myArr2 = myRe2.exec(props.body) || '';
 
+    console.log("Props body:", props.body);
     console.log("Arr:", myArr);
 
     let codex = $state('');
